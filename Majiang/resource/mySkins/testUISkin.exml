@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="testUISkin" width="1920" height="1080" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing">
+	<e:Label text="输入请求:" x="91" y="124"/>
+	<e:TextInput id="urlTxt" width="1095" height="68" x="394" y="118" prompt="输入请求url"/>
+	<e:Button id="sendBtn" label="发送" x="563.45" y="631.27"/>
+	<e:Label text="请求方式" x="73" y="306"/>
+	<e:TextInput id="reqTypeTxt" width="206" height="61" x="394" y="291" prompt="GET/POST"/>
+	<e:Label text="返回" x="100" y="473"/>
+	<e:Label id="resultTxt" text="" x="327" y="452" anchorOffsetX="0" width="1301.27" anchorOffsetY="0" height="157.27"/>
+</e:Skin>
