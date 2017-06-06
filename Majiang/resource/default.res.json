@@ -1,7 +1,7 @@
 {
 	"groups": [
 		{
-			"keys": "checkbox_select_disabled_png,checkbox_select_down_png,checkbox_select_up_png,checkbox_unselect_png,selected_png,border_png,header_png,radiobutton_select_disabled_png,radiobutton_select_down_png,radiobutton_select_up_png,radiobutton_unselect_png,roundthumb_png,thumb_png,track_png,tracklight_png,handle_png,off_png,on_png,button_down_png,button_up_png,thumb_pb_png,track_pb_png,track_sb_png,bg_jpg,egret_icon_png,description_json",
+			"keys": "checkbox_select_disabled_png,checkbox_select_down_png,checkbox_select_up_png,checkbox_unselect_png,selected_png,border_png,header_png,radiobutton_select_disabled_png,radiobutton_select_down_png,radiobutton_select_up_png,radiobutton_unselect_png,roundthumb_png,thumb_png,track_png,tracklight_png,handle_png,off_png,on_png,button_down_png,button_up_png,thumb_pb_png,track_pb_png,track_sb_png,bg_jpg,egret_icon_png,description_json,tiao7_png,tiao8_png,tiao9_png,tong1_png,tong2_png,tong3_png,tong4_png,tong5_png,tong6_png,tong7_png,tong8_png,tong9_png,wan1_png,wan2_png,wan3_png,wan4_png,wan5_png,wan6_png,wan7_png,wan8_png,wan9_png,backCard_png,leftCard_png,tiao1_png,tiao2_png,tiao3_png,tiao4_png,tiao5_png,tiao6_png",
 			"name": "preload"
 		}
 	],
@@ -135,6 +135,151 @@
 			"name": "description_json",
 			"type": "json",
 			"url": "config/description.json"
+		},
+		{
+			"name": "tiao7_png",
+			"type": "image",
+			"url": "imgs/tiao7.png"
+		},
+		{
+			"name": "tiao8_png",
+			"type": "image",
+			"url": "imgs/tiao8.png"
+		},
+		{
+			"name": "tiao9_png",
+			"type": "image",
+			"url": "imgs/tiao9.png"
+		},
+		{
+			"name": "tong1_png",
+			"type": "image",
+			"url": "imgs/tong1.png"
+		},
+		{
+			"name": "tong2_png",
+			"type": "image",
+			"url": "imgs/tong2.png"
+		},
+		{
+			"name": "tong3_png",
+			"type": "image",
+			"url": "imgs/tong3.png"
+		},
+		{
+			"name": "tong4_png",
+			"type": "image",
+			"url": "imgs/tong4.png"
+		},
+		{
+			"name": "tong5_png",
+			"type": "image",
+			"url": "imgs/tong5.png"
+		},
+		{
+			"name": "tong6_png",
+			"type": "image",
+			"url": "imgs/tong6.png"
+		},
+		{
+			"name": "tong7_png",
+			"type": "image",
+			"url": "imgs/tong7.png"
+		},
+		{
+			"name": "tong8_png",
+			"type": "image",
+			"url": "imgs/tong8.png"
+		},
+		{
+			"name": "tong9_png",
+			"type": "image",
+			"url": "imgs/tong9.png"
+		},
+		{
+			"name": "wan1_png",
+			"type": "image",
+			"url": "imgs/wan1.png"
+		},
+		{
+			"name": "wan2_png",
+			"type": "image",
+			"url": "imgs/wan2.png"
+		},
+		{
+			"name": "wan3_png",
+			"type": "image",
+			"url": "imgs/wan3.png"
+		},
+		{
+			"name": "wan4_png",
+			"type": "image",
+			"url": "imgs/wan4.png"
+		},
+		{
+			"name": "wan5_png",
+			"type": "image",
+			"url": "imgs/wan5.png"
+		},
+		{
+			"name": "wan6_png",
+			"type": "image",
+			"url": "imgs/wan6.png"
+		},
+		{
+			"name": "wan7_png",
+			"type": "image",
+			"url": "imgs/wan7.png"
+		},
+		{
+			"name": "wan8_png",
+			"type": "image",
+			"url": "imgs/wan8.png"
+		},
+		{
+			"name": "wan9_png",
+			"type": "image",
+			"url": "imgs/wan9.png"
+		},
+		{
+			"name": "backCard_png",
+			"type": "image",
+			"url": "imgs/backCard.png"
+		},
+		{
+			"name": "leftCard_png",
+			"type": "image",
+			"url": "imgs/leftCard.png"
+		},
+		{
+			"name": "tiao1_png",
+			"type": "image",
+			"url": "imgs/tiao1.png"
+		},
+		{
+			"name": "tiao2_png",
+			"type": "image",
+			"url": "imgs/tiao2.png"
+		},
+		{
+			"name": "tiao3_png",
+			"type": "image",
+			"url": "imgs/tiao3.png"
+		},
+		{
+			"name": "tiao4_png",
+			"type": "image",
+			"url": "imgs/tiao4.png"
+		},
+		{
+			"name": "tiao5_png",
+			"type": "image",
+			"url": "imgs/tiao5.png"
+		},
+		{
+			"name": "tiao6_png",
+			"type": "image",
+			"url": "imgs/tiao6.png"
 		}
 	]
 }

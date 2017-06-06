@@ -134,8 +134,8 @@ var Main = (function (_super) {
      * Create scene interface
      */
     Main.prototype.startCreateScene = function () {
-        var ui = new TestUI();
-        this.addChild(ui);
+        UIManager.getInstance().setRoot(this);
+        UIManager.getInstance().openUI("LoginUI");
     };
     return Main;
 }(eui.UILayer));

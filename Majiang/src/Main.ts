@@ -129,10 +129,8 @@ class Main extends eui.UILayer {
      * Create scene interface
      */
     protected startCreateScene(): void {
-
-        var ui: TestUI = new TestUI();
-        this.addChild(ui);
-
+        UIManager.getInstance().setRoot(this);
+        UIManager.getInstance().openUI("LoginUI");
     }
    
 }

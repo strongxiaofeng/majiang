@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="TestSocketUISkin" width="1920" height="1080" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing">
+	<e:Label id="stateLabel" text="当前状态" x="748" y="85" width="329" textAlign="center"/>
+	<e:TextInput id="dataTxt" width="1300" height="250" x="312" y="203" anchorOffsetX="0" anchorOffsetY="0" prompt="输入发送内容"/>
+	<e:Button id="sendBtn" label="发送" x="863.65" y="848.3"/>
+	<e:Label id="returnTxt" text="" x="321" y="533" anchorOffsetX="0" width="1289.39" anchorOffsetY="0" height="198.97"/>
+</e:Skin>

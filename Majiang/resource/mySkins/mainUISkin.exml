@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="mainUISkin" width="1920" height="1080" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing">
+	<e:Button id="startBtn" label="开始匹配" x="715" y="397" anchorOffsetX="0" width="475.76" anchorOffsetY="0" height="131.82"/>
+</e:Skin>
