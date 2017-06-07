@@ -39,6 +39,9 @@ var LoginUI = (function (_super) {
         var code = data.code;
         if (code == 0) {
             console.log("登录成功");
+            UIManager.getInstance().openUI("MainUI");
+            console.log("设置名字为 " + data.content.name);
+            GlobalConfig.username = data.content.name;
         }
         else {
             console.log("登录失败");
@@ -51,13 +54,12 @@ var LoginUI = (function (_super) {
         data.command = Commands.REGISTER;
         data.content = { "name": name, "password": psw };
         NetController.getInstance().sendData(data, this.registerBack, this);
-        GlobalConfig.name = name;
     };
     LoginUI.prototype.registerBack = function (data) {
         var code = data.code;
         if (code == 0) {
             console.log("注册成功");
-            UIManager.getInstance().openUI("MainUI");
+            this.changeLogin();
         }
         else {
             console.log("注册失败");

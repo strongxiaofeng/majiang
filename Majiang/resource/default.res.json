@@ -1,7 +1,7 @@
 {
 	"groups": [
 		{
-			"keys": "checkbox_select_disabled_png,checkbox_select_down_png,checkbox_select_up_png,checkbox_unselect_png,selected_png,border_png,header_png,radiobutton_select_disabled_png,radiobutton_select_down_png,radiobutton_select_up_png,radiobutton_unselect_png,roundthumb_png,thumb_png,track_png,tracklight_png,handle_png,off_png,on_png,button_down_png,button_up_png,thumb_pb_png,track_pb_png,track_sb_png,bg_jpg,egret_icon_png,description_json,tiao7_png,tiao8_png,tiao9_png,tong1_png,tong2_png,tong3_png,tong4_png,tong5_png,tong6_png,tong7_png,tong8_png,tong9_png,wan1_png,wan2_png,wan3_png,wan4_png,wan5_png,wan6_png,wan7_png,wan8_png,wan9_png,backCard_png,leftCard_png,tiao1_png,tiao2_png,tiao3_png,tiao4_png,tiao5_png,tiao6_png",
+			"keys": "checkbox_select_disabled_png,checkbox_select_down_png,checkbox_select_up_png,checkbox_unselect_png,selected_png,border_png,header_png,radiobutton_select_disabled_png,radiobutton_select_down_png,radiobutton_select_up_png,radiobutton_unselect_png,roundthumb_png,thumb_png,track_png,tracklight_png,handle_png,off_png,on_png,button_down_png,button_up_png,thumb_pb_png,track_pb_png,track_sb_png,bg_jpg,egret_icon_png,description_json,tiao7_png,tiao8_png,tiao9_png,tong1_png,tong2_png,tong3_png,tong4_png,tong5_png,tong6_png,tong7_png,tong8_png,tong9_png,wan1_png,wan2_png,wan3_png,wan4_png,wan5_png,wan6_png,wan7_png,wan8_png,wan9_png,backCard_png,leftCard_png,tiao1_png,tiao2_png,tiao3_png,tiao4_png,tiao5_png,tiao6_png,cardbgleft_png",
 			"name": "preload"
 		}
 	],
@@ -132,154 +132,164 @@
 			"name": "egret_icon_png"
 		},
 		{
-			"name": "description_json",
+			"url": "config/description.json",
 			"type": "json",
-			"url": "config/description.json"
+			"name": "description_json"
 		},
 		{
-			"name": "tiao7_png",
+			"url": "imgs/tiao7.png",
 			"type": "image",
-			"url": "imgs/tiao7.png"
+			"name": "tiao7_png"
 		},
 		{
-			"name": "tiao8_png",
+			"url": "imgs/tiao8.png",
 			"type": "image",
-			"url": "imgs/tiao8.png"
+			"name": "tiao8_png"
 		},
 		{
-			"name": "tiao9_png",
+			"url": "imgs/tiao9.png",
 			"type": "image",
-			"url": "imgs/tiao9.png"
+			"name": "tiao9_png"
 		},
 		{
-			"name": "tong1_png",
+			"url": "imgs/tong1.png",
 			"type": "image",
-			"url": "imgs/tong1.png"
+			"name": "tong1_png"
 		},
 		{
-			"name": "tong2_png",
+			"url": "imgs/tong2.png",
 			"type": "image",
-			"url": "imgs/tong2.png"
+			"name": "tong2_png"
 		},
 		{
-			"name": "tong3_png",
+			"url": "imgs/tong3.png",
 			"type": "image",
-			"url": "imgs/tong3.png"
+			"name": "tong3_png"
 		},
 		{
-			"name": "tong4_png",
+			"url": "imgs/tong4.png",
 			"type": "image",
-			"url": "imgs/tong4.png"
+			"name": "tong4_png"
 		},
 		{
-			"name": "tong5_png",
+			"url": "imgs/tong5.png",
 			"type": "image",
-			"url": "imgs/tong5.png"
+			"name": "tong5_png"
 		},
 		{
-			"name": "tong6_png",
+			"url": "imgs/tong6.png",
 			"type": "image",
-			"url": "imgs/tong6.png"
+			"name": "tong6_png"
 		},
 		{
-			"name": "tong7_png",
+			"url": "imgs/tong7.png",
 			"type": "image",
-			"url": "imgs/tong7.png"
+			"name": "tong7_png"
 		},
 		{
-			"name": "tong8_png",
+			"url": "imgs/tong8.png",
 			"type": "image",
-			"url": "imgs/tong8.png"
+			"name": "tong8_png"
 		},
 		{
-			"name": "tong9_png",
+			"url": "imgs/tong9.png",
 			"type": "image",
-			"url": "imgs/tong9.png"
+			"name": "tong9_png"
 		},
 		{
-			"name": "wan1_png",
+			"url": "imgs/wan1.png",
 			"type": "image",
-			"url": "imgs/wan1.png"
+			"name": "wan1_png"
 		},
 		{
-			"name": "wan2_png",
+			"url": "imgs/wan2.png",
 			"type": "image",
-			"url": "imgs/wan2.png"
+			"name": "wan2_png"
 		},
 		{
-			"name": "wan3_png",
+			"url": "imgs/wan3.png",
 			"type": "image",
-			"url": "imgs/wan3.png"
+			"name": "wan3_png"
 		},
 		{
-			"name": "wan4_png",
+			"url": "imgs/wan4.png",
 			"type": "image",
-			"url": "imgs/wan4.png"
+			"name": "wan4_png"
 		},
 		{
-			"name": "wan5_png",
+			"url": "imgs/wan5.png",
 			"type": "image",
-			"url": "imgs/wan5.png"
+			"name": "wan5_png"
 		},
 		{
-			"name": "wan6_png",
+			"url": "imgs/wan6.png",
 			"type": "image",
-			"url": "imgs/wan6.png"
+			"name": "wan6_png"
 		},
 		{
-			"name": "wan7_png",
+			"url": "imgs/wan7.png",
 			"type": "image",
-			"url": "imgs/wan7.png"
+			"name": "wan7_png"
 		},
 		{
-			"name": "wan8_png",
+			"url": "imgs/wan8.png",
 			"type": "image",
-			"url": "imgs/wan8.png"
+			"name": "wan8_png"
 		},
 		{
-			"name": "wan9_png",
+			"url": "imgs/wan9.png",
 			"type": "image",
-			"url": "imgs/wan9.png"
+			"name": "wan9_png"
 		},
 		{
-			"name": "backCard_png",
+			"url": "imgs/backCard.png",
 			"type": "image",
-			"url": "imgs/backCard.png"
+			"name": "backCard_png"
 		},
 		{
-			"name": "leftCard_png",
+			"url": "imgs/leftCard.png",
 			"type": "image",
-			"url": "imgs/leftCard.png"
+			"name": "leftCard_png"
 		},
 		{
-			"name": "tiao1_png",
+			"url": "imgs/tiao1.png",
 			"type": "image",
-			"url": "imgs/tiao1.png"
+			"name": "tiao1_png"
 		},
 		{
-			"name": "tiao2_png",
+			"url": "imgs/tiao2.png",
 			"type": "image",
-			"url": "imgs/tiao2.png"
+			"name": "tiao2_png"
 		},
 		{
-			"name": "tiao3_png",
+			"url": "imgs/tiao3.png",
 			"type": "image",
-			"url": "imgs/tiao3.png"
+			"name": "tiao3_png"
 		},
 		{
-			"name": "tiao4_png",
+			"url": "imgs/tiao4.png",
 			"type": "image",
-			"url": "imgs/tiao4.png"
+			"name": "tiao4_png"
 		},
 		{
-			"name": "tiao5_png",
+			"url": "imgs/tiao5.png",
 			"type": "image",
-			"url": "imgs/tiao5.png"
+			"name": "tiao5_png"
 		},
 		{
-			"name": "tiao6_png",
+			"url": "imgs/tiao6.png",
 			"type": "image",
-			"url": "imgs/tiao6.png"
+			"name": "tiao6_png"
+		},
+		{
+			"url": "imgs/table.png",
+			"type": "image",
+			"name": "table_png"
+		},
+		{
+			"name": "cardbgleft_png",
+			"type": "image",
+			"url": "imgs/cardbgleft.png"
 		}
 	]
 }

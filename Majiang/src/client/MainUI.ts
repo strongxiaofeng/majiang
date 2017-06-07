@@ -14,13 +14,19 @@ class MainUI extends eui.Component{
 
 	//开始匹配
 	private matchPlayer(){
+		this.startBtn.enabled = false;
+
 		var data = new BaseMsg();
 		data.command = Commands.MATCH_PLAYER;
-		data.content = {"name":GlobalConfig.name};
+		data.content = {"name": GlobalConfig.username};
 		NetController.getInstance().sendData(data, this.onMatchPlayerBack, this);
 	}
 
 	private onMatchPlayerBack(data){
-
+		console.log("匹配返回 ",data);
+		if(data.code == 0){
+			GameModel.getInstance().roomPlayersData = data.content.players;
+			UIManager.getInstance().openUI("RoomUI");
+		}
 	}
 }

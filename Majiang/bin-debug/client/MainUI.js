@@ -19,12 +19,18 @@ var MainUI = (function (_super) {
     };
     //开始匹配
     MainUI.prototype.matchPlayer = function () {
+        this.startBtn.enabled = false;
         var data = new BaseMsg();
         data.command = Commands.MATCH_PLAYER;
-        data.content = { "name": GlobalConfig.name };
+        data.content = { "name": GlobalConfig.username };
         NetController.getInstance().sendData(data, this.onMatchPlayerBack, this);
     };
     MainUI.prototype.onMatchPlayerBack = function (data) {
+        console.log("匹配返回 ", data);
+        if (data.code == 0) {
+            GameModel.getInstance().roomPlayersData = data.content.players;
+            UIManager.getInstance().openUI("RoomUI");
+        }
     };
     return MainUI;
 }(eui.Component));

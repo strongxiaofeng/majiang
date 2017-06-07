@@ -56,5 +56,7 @@ declare class loginUISkin extends eui.Skin{
 }
 declare class mainUISkin extends eui.Skin{
 }
+declare class roomUISkin extends eui.Skin{
+}
 declare class testUISkin extends eui.Skin{
 }

@@ -2,5 +2,5 @@ class GlobalConfig {
 	public constructor() {
 	}
 
-	public static name:string;
+	public static username:string;
 }

@@ -50,6 +50,9 @@ class LoginUI extends eui.Component{
 		let code = data.code;
 		if(code==0) {
 			console.log("登录成功");
+        	UIManager.getInstance().openUI("MainUI");
+			console.log("设置名字为 "+data.content.name)
+			GlobalConfig.username = data.content.name;
 		}
 		else{
 			console.log("登录失败");
@@ -63,15 +66,12 @@ class LoginUI extends eui.Component{
 		data.command = Commands.REGISTER;
 		data.content = {"name":name, "password":psw};
 		NetController.getInstance().sendData(data, this.registerBack, this);
-		
-		GlobalConfig.name = name;
-		
 	}
 	private registerBack(data:BaseMsg): void{
 		let code = data.code;
 		if(code==0) {
 			console.log("注册成功");
-        	UIManager.getInstance().openUI("MainUI");
+			this.changeLogin();
 		}
 		else{
 			console.log("注册失败");
