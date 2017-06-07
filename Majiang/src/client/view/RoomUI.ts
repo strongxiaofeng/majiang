@@ -102,10 +102,14 @@ class RoomUI extends eui.Component{
 		var index = data.index;
 		//该我出牌
 		if(index == this.myseat){
-			var num = this.myCardGroup.numChildren;
-			for(var i=0; i<num; i++){
-				// this.myCardGroup.getChildAt(i).addEventListener();
-			}
+			// mouse.setMouseMoveEnabled(true);
+			// var num = this.myCardGroup.numChildren;
+			// for(var i=0; i<num; i++){
+			// 	var card:eui.Image = <eui.Image>this.myCardGroup.getChildAt(i);
+			// 	card.addEventListener(mouse.MouseEvent.MOUSE_OVER, this.onCardOver, this);
+			// 	card.addEventListener(mouse.MouseEvent.MOUSE_MOVE, this.onCardOver, this);
+			// 	card.addEventListener(mouse.MouseEvent.MOUSE_OUT, this.onCardOut, this);
+			// }
 			
 		}
 		//别人出牌
@@ -113,6 +117,19 @@ class RoomUI extends eui.Component{
 
 		}
 	}
+	/**鼠标悬停到麻将上 */
+	private onCardOver(e:egret.Event):void{
+		var card = e.target;
+		console.log(card);
+		card.y = 870;
+	}
+	/**鼠标离开麻将 */
+	private onCardOut(e:egret.Event):void{
+		var card = e.target;
+		console.log(card);
+		card.y = 900;
+	}
+
 	/**我可以选择 碰/杠/胡/过 了 */
 	private onPengCard(data): void{
 

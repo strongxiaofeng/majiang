@@ -20,10 +20,18 @@ var MainUI = (function (_super) {
     //开始匹配
     MainUI.prototype.matchPlayer = function () {
         this.startBtn.enabled = false;
+        this.startTween();
         var data = new BaseMsg();
         data.command = Commands.MATCH_PLAYER;
         data.content = { "name": GlobalConfig.username };
         NetController.getInstance().sendData(data, this.onMatchPlayerBack, this);
+    };
+    MainUI.prototype.startTween = function () {
+        this.startingTip.visible = true;
+        this.startingTip.rotation = 5;
+        egret.Tween.get(this.startingTip, { loop: true })
+            .to({ rotation: -5 }, 500)
+            .to({ rotation: 5 }, 500);
     };
     MainUI.prototype.onMatchPlayerBack = function (data) {
         console.log("匹配返回 ", data);

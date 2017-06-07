@@ -10,6 +10,7 @@ var RoomUI = (function (_super) {
     __extends(RoomUI, _super);
     function RoomUI() {
         var _this = _super.call(this) || this;
+        /**我的牌数据 */
         _this.mycards = [];
         _this.skinName = "resource/mySkins/roomUISkin.exml";
         _this.init();
@@ -31,6 +32,7 @@ var RoomUI = (function (_super) {
         for (var i = 0; i < 4; i++) {
             //我是第几个位置 0-3
             if (playerData[i].name == GlobalConfig.username) {
+                this.myseat = i;
                 this.setPlayer("my", playerData[i]);
                 this.setPlayer("right", playerData[(i + 1 > 3 ? i - 3 : i + 1)]);
                 this.setPlayer("top", playerData[(i + 2 > 3 ? i - 2 : i + 2)]);
@@ -74,6 +76,24 @@ var RoomUI = (function (_super) {
     };
     /**该某人出牌了 */
     RoomUI.prototype.onPlayCard = function (data) {
+        var index = data.index;
+        //该我出牌
+        if (index == this.myseat) {
+        }
+        else {
+        }
+    };
+    /**鼠标悬停到麻将上 */
+    RoomUI.prototype.onCardOver = function (e) {
+        var card = e.target;
+        console.log(card);
+        card.y = 870;
+    };
+    /**鼠标离开麻将 */
+    RoomUI.prototype.onCardOut = function (e) {
+        var card = e.target;
+        console.log(card);
+        card.y = 900;
     };
     /**我可以选择 碰/杠/胡/过 了 */
     RoomUI.prototype.onPengCard = function (data) {

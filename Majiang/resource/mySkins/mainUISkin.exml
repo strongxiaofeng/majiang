@@ -1,4 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="mainUISkin" width="1920" height="1080" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing">
-	<e:Button id="startBtn" label="开始匹配" x="715" y="397" anchorOffsetX="0" width="475.76" anchorOffsetY="0" height="131.82"/>
+	<e:Image source="mainbg_png" x="0" y="0"/>
+	<e:Button id="startBtn" label="" y="665" anchorOffsetX="0" width="475.76" anchorOffsetY="0" height="131.82" horizontalCenter="-2">
+		<e:skinName>
+			<e:Skin states="up,down,disabled">
+			<e:Image width="100%" height="100%" source="start1_png" source.down="start2_png" source.disabled="start3_png"/>
+			<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0"/>
+			</e:Skin>
+		</e:skinName>
+	</e:Button>
+	<e:Image id="startingTip" source="starting_png" x="960" y="936" width="500" height="140" anchorOffsetX="250" anchorOffsetY="70" visible="false"/>
 </e:Skin>
