@@ -77,4 +77,5 @@
         <e:Label id="topNameTxt" text="王五" x="280" y="42" width="191"/>
         <e:Label id="topBalanceTxt" text="100000" x="281" y="95" width="182"/>
 	</e:Group>
+	<e:Label id="leftCardTxt" text="还剩牌:108" x="733" y="448" scaleX="1" scaleY="1" size="60" anchorOffsetX="0" width="463" anchorOffsetY="0" height="95" textAlign="center"/>
 </e:Skin>

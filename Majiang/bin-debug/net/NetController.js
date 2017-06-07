@@ -30,6 +30,10 @@ var NetController = (function () {
             }
             delete this.callbackPool[sqs];
         }
+        else {
+            console.log("这是推送消息");
+            MsgListener.getInstance().dispatch(msg.command, msg);
+        }
     };
     /**发出数据 */
     NetController.prototype.sendData = function (data, callback, thisObj) {

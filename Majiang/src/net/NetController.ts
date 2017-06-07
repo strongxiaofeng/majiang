@@ -34,6 +34,11 @@ class NetController {
 			}
 			delete this.callbackPool[sqs];
 		}
+		//没有sqs 是服务器主动发的
+		else{
+			console.log("这是推送消息");
+			MsgListener.getInstance().dispatch(msg.command, msg);
+		}
 	}
 	/**发出数据 */
 	public sendData(data: BaseMsg, callback:Function=null, thisObj:any=null): void{
