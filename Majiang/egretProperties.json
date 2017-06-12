@@ -26,6 +26,10 @@
     },
     {
       "name": "socket"
-    }
+    },
+		{
+			"name": "mouse",
+			"path": "libsrc/mouse"
+		}
   ]
 }

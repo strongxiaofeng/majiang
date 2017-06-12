@@ -76,6 +76,70 @@
         <e:Label id="rightBalanceTxt" text="100000" x="1607" y="289" width="182"/>
         <e:Label id="topNameTxt" text="王五" x="280" y="42" width="191"/>
         <e:Label id="topBalanceTxt" text="100000" x="281" y="95" width="182"/>
+		<e:Image id="leftLackImg" source="" x="77" y="366" scaleX="1" scaleY="1" width="50" height="50"/>
+		<e:Image id="rightLackImg" x="1654" y="359" scaleX="1" scaleY="1" width="50" height="50" source=""/>
+		<e:Image id="topLackImg" x="200" y="42" scaleX="1" scaleY="1" width="50" height="50" source=""/>
+		<e:Image id="myLackImg" x="175" y="978" scaleX="1" scaleY="1" width="50" height="50" source=""/>
 	</e:Group>
 	<e:Label id="leftCardTxt" text="还剩牌:108" x="733" y="448" scaleX="1" scaleY="1" size="60" anchorOffsetX="0" width="463" anchorOffsetY="0" height="95" textAlign="center"/>
+	<e:Group id="lackGroup" width="1" height="1" x="0" y="0" visible="false">
+		<e:Button id="lackBtn_wan" label="" x="496" y="622" scaleX="1" scaleY="1">
+			<e:skinName>
+			<e:Skin states="up,down,disabled">
+				<e:Image width="100%" height="100%" source="lackwan_png" source.down="lackwan_png" source.disabled="lackwan_png"/>
+				<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0"/>
+			</e:Skin>
+			</e:skinName>
+		</e:Button>
+		<e:Button id="lackBtn_tiao" label="" x="833" y="622" scaleX="1" scaleY="1">
+			<e:skinName>
+			<e:Skin states="up,down,disabled">
+				<e:Image width="100%" height="100%" source="lacktiao_png" source.down="lacktiao_png" source.disabled="lacktiao_png"/>
+				<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0"/>
+			</e:Skin>
+			</e:skinName>
+		</e:Button>
+		<e:Button id="lackBtn_tong" label="" x="1183" y="622" scaleX="1" scaleY="1">
+			<e:skinName>
+			<e:Skin states="up,down,disabled">
+				<e:Image width="100%" height="100%" source="lacktong_png" source.down="lacktong_png" source.disabled="lacktong_png"/>
+				<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0"/>
+			</e:Skin>
+			</e:skinName>
+		</e:Button>
+	</e:Group>
+	<e:Group id="actionGroup" width="1" height="1" x="0" y="0" visible="false">
+		<e:Button id="actionBtn_peng" label="" x="746" y="693" scaleX="1" scaleY="1">
+			<e:skinName>
+			<e:Skin states="up,down,disabled">
+				<e:Image width="100%" height="100%" source="action_peng_png" source.down="action_peng_png" source.disabled="action_peng_png"/>
+				<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0"/>
+			</e:Skin>
+			</e:skinName>
+		</e:Button>
+		<e:Button id="actionBtn_gang" label="" x="960" y="693" scaleX="1" scaleY="1">
+			<e:skinName>
+			<e:Skin states="up,down,disabled">
+				<e:Image width="100%" height="100%" source="action_gang_png" source.down="action_gang_png" source.disabled="action_gang_png"/>
+				<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0"/>
+			</e:Skin>
+			</e:skinName>
+		</e:Button>
+		<e:Button id="actionBtn_hu" label="" x="1148" y="693" scaleX="1" scaleY="1">
+			<e:skinName>
+			<e:Skin states="up,down,disabled">
+				<e:Image width="100%" height="100%" source="action_hu_png" source.down="action_hu_png" source.disabled="action_hu_png"/>
+				<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0"/>
+			</e:Skin>
+			</e:skinName>
+		</e:Button>
+		<e:Button id="actionBtn_guo" label="" x="1346" y="693" scaleX="1" scaleY="1">
+			<e:skinName>
+			<e:Skin states="up,down,disabled">
+				<e:Image width="100%" height="100%" source="action_guo_png" source.down="action_guo_png" source.disabled="action_guo_png"/>
+				<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0"/>
+			</e:Skin>
+			</e:skinName>
+		</e:Button>
+	</e:Group>
 </e:Skin>

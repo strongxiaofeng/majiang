@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="loginUISkin" width="1920" height="1080" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing">
 	<e:Group id="loginGroup" width="1" height="1" x="0" y="0">
-		<e:TextInput id="nameInput" width="400" height="100" x="661.0000000000001" y="191" scaleX="1" scaleY="1" prompt="用户名"/>
-		<e:TextInput id="passInput" width="400" height="100" x="665" y="323" scaleX="1" scaleY="1" prompt="密码" inputType="password"/>
-		<e:Button id="loginBtn" label="登录" x="661.0000000000001" y="606.03" scaleX="1" scaleY="1"/>
-		<e:Button id="registerBtn" label="注册" x="991.0000000000001" y="616.03" scaleX="1" scaleY="1"/>
+		<e:Button id="registerBtn" label="注册" x="991.0000000000001" y="616.03" scaleX="1" scaleY="1" anchorOffsetX="0" width="290" anchorOffsetY="0" height="216"/>
+		<e:Button id="loginBtn" label="登录" x="431" y="598" scaleX="1" scaleY="1" anchorOffsetX="0" width="246" anchorOffsetY="0" height="224"/>
+		<e:TextInput id="passInput" width="400" height="100" x="659" y="399" scaleX="1" scaleY="1.5" prompt="密码" inputType="password"/>
+		<e:TextInput id="nameInput" width="400" height="100" x="647" y="127" scaleX="1" scaleY="1.5" prompt="用户名"/>
 	</e:Group>
-	<e:Group id="registerGroup" width="1" height="1" x="0" y="0">
-		<e:TextInput id="nameInput1" width="400" height="100" x="671" y="193" scaleX="1" scaleY="1" prompt="注册用户名"/>
-		<e:TextInput id="passInput1" width="400" height="100" x="665" y="318" scaleX="1" scaleY="1" prompt="注册密码" inputType="password"/>
-		<e:Button id="registerBtn1" label="注册" x="827.0000000000001" y="622.03" scaleX="1" scaleY="1"/>
-		<e:Button id="returnBtn" label="返回" x="1626.9700000000003" y="201" scaleX="1" scaleY="1"/>
+	<e:Group id="registerGroup" width="1" height="1" x="0" y="0" visible="false">
+		<e:TextInput id="nameInput1" width="400" height="100" x="671" y="193" scaleX="1" scaleY="1.5" prompt="注册用户名"/>
+		<e:Button id="returnBtn" label="返回" x="1626.9700000000003" y="201" scaleX="1" scaleY="1" anchorOffsetX="0" width="233.33" anchorOffsetY="0" height="159.09"/>
+		<e:Button id="registerBtn1" label="注册" x="721" y="710" scaleX="1" scaleY="1" anchorOffsetX="0" width="368" anchorOffsetY="0" height="214"/>
+		<e:TextInput id="passInput1" width="400" height="100" x="689" y="436" scaleX="1" scaleY="1.5" prompt="注册密码" inputType="password"/>
 	</e:Group>
 </e:Skin>

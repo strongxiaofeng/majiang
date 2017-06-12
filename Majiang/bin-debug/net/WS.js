@@ -32,6 +32,7 @@ var WS = (function () {
         NetController.getInstance().readData(JSON.parse(msg));
     };
     WS.prototype.sendData = function (data) {
+        console.log("发出消息 " + data);
         if (this.isBin) {
             var byte = new egret.ByteArray();
             byte.writeUTF(data);

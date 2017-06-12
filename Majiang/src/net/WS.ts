@@ -34,6 +34,7 @@ class WS {
 	}
 
 	public sendData(data:string): void{
+		console.log("发出消息 "+data);
 		if(this.isBin){
 			var byte:egret.ByteArray = new egret.ByteArray();
 			byte.writeUTF(data);
