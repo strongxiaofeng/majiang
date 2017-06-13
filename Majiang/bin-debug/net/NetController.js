@@ -16,7 +16,7 @@ var NetController = (function () {
     NetController.prototype.connect = function () {
         if (!this.ws) {
             this.ws = new WS();
-            this.ws.connect("192.168.8.184", 8181);
+            this.ws.connect("192.168.1.3", 8181);
         }
     };
     /**收到数据 */
