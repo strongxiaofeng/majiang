@@ -29,6 +29,14 @@ class RoomUI extends eui.Component{
 	private topLackImg: eui.Image;
 	private myLackImg: eui.Image;
 
+	/**出牌显示容器 */
+	private playCardGroup:eui.Group;
+	/**出牌的人 */
+	private playedName:eui.Label;
+	/**出的牌 */
+	private playedCard:eui.Image;
+	/**出牌箭头 */
+	private arrow:eui.Image;
 	
 	private playCommand_sendCard = 0;
 	private playCommand_lackCard = 1;
@@ -41,8 +49,9 @@ class RoomUI extends eui.Component{
 	/**我的牌数据 */
 	private mycards : number[]= [];
 	/**我的定缺 */
-	private myLack:string;
-
+	private myLack:string="";
+	/**玩家数据 */
+	private playerData:any;
 
 	public constructor() {
 		super();
@@ -68,10 +77,14 @@ class RoomUI extends eui.Component{
 		this.lackBtn_wan.addEventListener(egret.TouchEvent.TOUCH_TAP, this.lack, this);
 		this.lackBtn_tiao.addEventListener(egret.TouchEvent.TOUCH_TAP, this.lack, this);
 		this.lackBtn_tong.addEventListener(egret.TouchEvent.TOUCH_TAP, this.lack, this);
+		this.actionBtn_peng.addEventListener(egret.TouchEvent.TOUCH_TAP, this.actionPeng, this);
+		this.actionBtn_gang.addEventListener(egret.TouchEvent.TOUCH_TAP, this.actionGang, this);
+		this.actionBtn_hu.addEventListener(egret.TouchEvent.TOUCH_TAP, this.actionHu, this);
+		this.actionBtn_guo.addEventListener(egret.TouchEvent.TOUCH_TAP, this.actionGuo, this);
 	}
-
 	private initData(): void{
 		var playerData = GameModel.getInstance().roomPlayersData;
+		this.playerData = playerData;
 		console.log(playerData);
 
 		for(var i=0; i<4; i++){
@@ -188,53 +201,141 @@ class RoomUI extends eui.Component{
 
 	/**该某人做动作了 */
 	private onPlayCard(data): void{
+		/**我可以杠 */
 		var gangAble = data.content.gangAble;
+		/**我可以胡 */
 		var huAble = data.content.huAble;
+		/**我可以碰 */
 		var pengAble = data.content.pengAble;
+		/**该谁出牌 */
+		var playIndex = data.content.playIndex;
+		/**我是否可以出牌 */
 		var playAble = data.content.playAble;
+		var action = data.content.action;
+		var card = data.content.card;
+		var index = data.content.index;
+
+		if(action == "play" && card>=0 && index>=0){
+			console.log("玩家"+index+"出牌了 "+card);
+			this.showPlayedCard(index, card);
+		}
+
+		this.setArrow(playIndex);
 		//我可以出一张牌
-		if(playAble){
+		if(playAble && playIndex==this.myseat){
 			console.log("我可以出牌");
-			mouse.setMouseMoveEnabled(true);
-			var num = this.myCardGroup.numChildren;
-			for(var i=0; i<num; i++){
-				console.log("注册鼠标事件");
-				var card:eui.Image = <eui.Image>this.myCardGroup.getChildAt(i);
-				card.addEventListener(egret.TouchEvent.TOUCH_TAP, (e:egret.Event)=>{
-					console.log("点击了牌 "+e.target.name);
-					if(e.target.y == 900){
-						e.target.y = 850;
-					}
-					else if(e.target.y == 850){
-						e.target.y = 900;
-					}
-				},this);
+			this.setPlayCardAble();
+		}
+
+		if(gangAble || huAble || pengAble){
+			this.onHandleCard(huAble, gangAble, pengAble);
+		}
+	}
+	/**设置箭头指向出牌的人 */
+	private setArrow(index:number):void{
+		this.arrow.visible = true;
+		if(index == this.myseat){
+			this.arrow.rotation = 90;
+		}
+		else if( index%4 == (this.myseat+1)%4){
+			this.arrow.rotation = 0;
+		}
+		else if( index%4 == (this.myseat+2)%4){
+			this.arrow.rotation = -90;
+		}
+		else if( index%4 == (this.myseat+3)%4){
+			this.arrow.rotation = 180;
+		}
+	}
+	/**我可以出牌了，给牌加事件 */
+	private setPlayCardAble(): void{
+		var num = this.myCardGroup.numChildren;
+		for(var i=0; i<num; i++){
+			console.log("注册鼠标事件");
+			var cardImg:eui.Image = <eui.Image>this.myCardGroup.getChildAt(i);
+			cardImg.addEventListener(egret.TouchEvent.TOUCH_TAP, (e:egret.Event)=>{
+				console.log("点击牌 "+e.target.name);
+				if(e.target.y == 900){
+					this.onCardChoosed(e.target);
+				}
+				else if(e.target.y == 860){
+					this.onCardOut(e.target);
+				}
+			},this);
+		}
+		this.setSuggestPlayCard();
+	}
+	/**鼠标选中一张 */
+	private onCardChoosed(img:eui.Image):void{
+		var num = this.myCardGroup.numChildren;
+		for(var i=0; i<num; i++){
+			var card:eui.Image = <eui.Image>this.myCardGroup.getChildAt(i);
+			card.y = 900;
+		}
+		img.y = 860;
+	}
+	/**出牌 */
+	private onCardOut(card:eui.Image):void{
+		var cardValue:number = parseInt(card.name);
+		var data = new BaseMsg();
+		data.command = Commands.PLAY_GAME;
+		data.content = {"roomId":this.roomId, "index":this.myseat , "state": this.playCommand_playCard,"action":"play", "card":cardValue};
+		NetController.getInstance().sendData(data, (d)=>{
+			if(d.code==0){
+				console.log("出牌成功");
+				this.showPlayedCard(this.myseat, cardValue);
+				this.mycards.splice(this.mycards.indexOf(cardValue), 1);
+				this.setMyCards(this.mycards);
 			}
-			
-		}
-		//别人出牌
-		else{
-			
-		}
+		}, this);
 	}
-	
-	/**鼠标悬停到麻将上 */
-	private onCardOver(e:egret.Event):void{
-		var card = e.target;
-		console.log(card);
-		card.y = 870;
+	/**移一张推荐出的牌到最右边 */
+	private setSuggestPlayCard(): void{
+		var card:eui.Image = <eui.Image>this.myCardGroup.getChildAt(this.myCardGroup.numChildren-1);
+		card.x += 50;
 	}
-	/**鼠标离开麻将 */
-	private onCardOut(e:egret.Event):void{
-		var card = e.target;
-		console.log(card);
-		card.y = 900;
+	/**有人出牌了 */
+	private showPlayedCard(index:number, card:number):void{
+		this.playCardGroup.visible = true;
+		this.playedName.text = this.playerData[index].name+"出牌了：";
+		this.playedCard.source = CardUtil.getCardRourceByNum(card);
 	}
 
 	/**我可以选择 碰/杠/胡/过 了 */
-	private onPengCard(data): void{
+	private onHandleCard(huAble:boolean, gangAble:boolean, pengAble:boolean): void{
+		this.actionGroup.visible = true;
+		this.actionBtn_peng.enabled = pengAble;
+		this.actionBtn_gang.enabled = gangAble;
+		this.actionBtn_hu.enabled = huAble;
+		this.actionBtn_peng.alpha = pengAble ? 1 : 0.5;
+		this.actionBtn_gang.alpha = gangAble ? 1 : 0.5;
+		this.actionBtn_hu.alpha = huAble ? 1 : 0.5;
+	}
+
+	/**我要碰牌 */
+	private actionPeng(): void{
 
 	}
+	/**我要杠牌 */
+	private actionGang(): void{
+		
+	}
+	/**我要胡牌 */
+	private actionHu(): void{
+		
+	}
+	/**我要过牌 */
+	private actionGuo(): void{
+		
+	}
+
+
+
+
+
+
+
+
 	/**派彩 */
 	private onPayout(data): void{
 
@@ -245,11 +346,65 @@ class RoomUI extends eui.Component{
 		this.mycards = this.mycards.concat(arr);
 		this.setMyCards(this.mycards);
 	}
+	/**将牌按定缺的花色排序，缺的花色排在后面, 没有定缺就按万条同排序 */
+	private sortCard(arr): Array<any>{
+		let lack = this.myLack;
+		if(lack.length>0){
+			//定缺的花色
+			var arr1 = [];
+			//不是缺的花色
+			var arr2 = [];
+
+			if(lack=="wan"){
+				for(var i=0;i<arr.length;i++){
+					if(arr[i]<36){
+						arr2.push(arr[i]);
+					}
+					else{
+						arr1.push(arr[i]);
+					}
+				}
+			}
+			else if(lack=="tiao"){
+				for(var i=0;i<arr.length;i++){
+					if(arr[i]>=36 && arr[i]<72){
+						arr2.push(arr[i]);
+					}
+					else{
+						arr1.push(arr[i]);
+					}
+				}
+			}
+			else if(lack=="tong"){
+				for(var i=0;i<arr.length;i++){
+					if(arr[i]>=72){
+						arr2.push(arr[i]);
+					}
+					else{
+						arr1.push(arr[i]);
+					}
+				}
+			}
+			arr1.sort(function(a:any,b:any):number{
+				return parseInt(a)-parseInt(b);
+			});
+			arr2.sort(function(a:any,b:any):number{
+				return parseInt(a)-parseInt(b);
+			});
+			return arr1.concat(arr2);
+		}
+		else{
+			arr.sort(function(a:any,b:any):number{
+				return parseInt(a)-parseInt(b);
+			});
+			return arr;
+		}
+	}
 	/**刷新自己的牌显示 */
 	private setMyCards(arr:Array<number>){
 		this.myCardGroup.removeChildren();
 
-		arr.sort();
+		arr = this.sortCard(arr);
 		console.log("排序之后的牌",arr);
 
 		//显示牌的中心点是960 每个牌宽100

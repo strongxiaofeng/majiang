@@ -1,7 +1,7 @@
 {
 	"groups": [
 		{
-			"keys": "checkbox_select_disabled_png,checkbox_select_down_png,checkbox_select_up_png,checkbox_unselect_png,selected_png,border_png,header_png,radiobutton_select_disabled_png,radiobutton_select_down_png,radiobutton_select_up_png,radiobutton_unselect_png,roundthumb_png,thumb_png,track_png,tracklight_png,handle_png,off_png,on_png,button_down_png,button_up_png,thumb_pb_png,track_pb_png,track_sb_png,bg_jpg,egret_icon_png,description_json,tiao7_png,tiao8_png,tiao9_png,tong1_png,tong2_png,tong3_png,tong4_png,tong5_png,tong6_png,tong7_png,tong8_png,tong9_png,wan1_png,wan2_png,wan3_png,wan4_png,wan5_png,wan6_png,wan7_png,wan8_png,wan9_png,backCard_png,leftCard_png,tiao1_png,tiao2_png,tiao3_png,tiao4_png,tiao5_png,tiao6_png,cardbgleft_png,mainbg_png,start1_png,start2_png,start3_png,starting_png,lacktong_png,lackwan_png,lacktiao_png,action_hu_png,action_gang_png,action_peng_png,action_guo_png",
+			"keys": "checkbox_select_disabled_png,checkbox_select_down_png,checkbox_select_up_png,checkbox_unselect_png,selected_png,border_png,header_png,radiobutton_select_disabled_png,radiobutton_select_down_png,radiobutton_select_up_png,radiobutton_unselect_png,roundthumb_png,thumb_png,track_png,tracklight_png,handle_png,off_png,on_png,button_down_png,button_up_png,thumb_pb_png,track_pb_png,track_sb_png,bg_jpg,egret_icon_png,description_json,tiao7_png,tiao8_png,tiao9_png,tong1_png,tong2_png,tong3_png,tong4_png,tong5_png,tong6_png,tong7_png,tong8_png,tong9_png,wan1_png,wan2_png,wan3_png,wan4_png,wan5_png,wan6_png,wan7_png,wan8_png,wan9_png,backCard_png,leftCard_png,tiao1_png,tiao2_png,tiao3_png,tiao4_png,tiao5_png,tiao6_png,cardbgleft_png,mainbg_png,start1_png,start2_png,start3_png,starting_png,lacktong_png,lackwan_png,lacktiao_png,action_hu_png,action_gang_png,action_peng_png,action_guo_png,arrow_png",
 			"name": "preload"
 		}
 	],
@@ -350,6 +350,11 @@
 			"name": "action_guo_png",
 			"type": "image",
 			"url": "imgs/action_guo.png"
+		},
+		{
+			"name": "arrow_png",
+			"type": "image",
+			"url": "imgs/arrow.png"
 		}
 	]
 }

@@ -11,5 +11,7 @@
 		<e:Button id="returnBtn" label="返回" x="1626.9700000000003" y="201" scaleX="1" scaleY="1" anchorOffsetX="0" width="233.33" anchorOffsetY="0" height="159.09"/>
 		<e:Button id="registerBtn1" label="注册" x="721" y="710" scaleX="1" scaleY="1" anchorOffsetX="0" width="368" anchorOffsetY="0" height="214"/>
 		<e:TextInput id="passInput1" width="400" height="100" x="689" y="436" scaleX="1" scaleY="1.5" prompt="注册密码" inputType="password"/>
+		<e:Label text="输个任意字符串:" x="218" y="228" size="50" textColor="0xb50909" bold="true" scaleX="1" scaleY="1"/>
+		<e:Label text="输个任意字符串:" x="218" y="487" size="50" textColor="0xB50909" bold="true" scaleX="1" scaleY="1"/>
 	</e:Group>
 </e:Skin>
