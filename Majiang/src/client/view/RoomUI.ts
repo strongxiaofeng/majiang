@@ -29,6 +29,13 @@ class RoomUI extends eui.Component{
 	private topLackImg: eui.Image;
 	private myLackImg: eui.Image;
 
+	private effect_gang: eui.Image;
+	private effect_peng: eui.Image;
+	private effect_hu_my: eui.Image;
+	private effect_hu_left: eui.Image;
+	private effect_hu_right: eui.Image;
+	private effect_hu_top: eui.Image;
+
 	/**出牌显示容器 */
 	private playCardGroup:eui.Group;
 	/**出牌的人 */
@@ -124,17 +131,22 @@ class RoomUI extends eui.Component{
 					this.onLackCard(data);
 					break;
 				case this.roomCommand_curPlayIndex:
+					this.onCurPlayerIndex(data);
 					break;
 				case this.roomCommand_handleCard://出牌/碰/杠/胡
 					this.onHandleCards(data);
 					break;
 				case this.roomCommand_playedCard:
+					this.onPlayedCards(data);
 					break;
 				case this.roomCommand_huCard:
+					this.onHuCard(data);
 					break;
 				case this.roomCommand_gangCard:
+					this.onGangCard(data);
 					break;
 				case this.roomCommand_pengCard:
+					this.onPengCard(data);
 					break;
 				case this.roomCommand_gameOver://结算
 					this.onGameOver(data);
@@ -154,6 +166,10 @@ class RoomUI extends eui.Component{
 		//自己发牌
 		if(data.content.addCards && data.content.addCards.length>0){
 			this.addMyCard(data.content.addCards);
+		}
+		//碰 杠之后 我的牌要变少
+		else if(data.content.removeCards && data.content.removeCards.length>0){
+			this.removeMyCard(data.content.removeCards);
 		}
 		//别人发牌
 		else if(data.content.otherCardNum){
@@ -228,6 +244,21 @@ class RoomUI extends eui.Component{
 		var index = data.content.huInfo.index;
 		var card = data.content.huInfo.card;
 		console.log("玩家"+index+"胡了牌"+"card");
+
+		var str = "";
+		if(index == this.myseat){
+			str == "my";
+		}
+		else if(index%4 == (this.myseat+1)%4 ){
+			str == "right";
+		}
+		else if(index%4 == (this.myseat+2)%4 ){
+			str == "top";
+		}
+		else if(index%4 == (this.myseat+3)%4 ){
+			str == "left";
+		}
+		this["effect_hu_"+str].visible = true;
 	}
 	/**收到某玩家杠了某张牌 */
 	private onGangCard(data: RoomVO): void{
@@ -235,6 +266,40 @@ class RoomUI extends eui.Component{
 		var card = data.content.gangOrPengInfo.card;
 		var showedCards = data.content.gangOrPengInfo.showedCards;
 		console.log("玩家"+index+"杠了牌"+"card"+" 他摆出来的牌有 ", showedCards);
+
+		var targetX = 0;
+		var targetY = 0;
+
+		if(index == this.myseat){
+			targetX = 960;
+			targetY = 891;
+		}
+		else if(index%4 == (this.myseat+1)%4 ){
+			targetX = 1558;
+			targetY = 500;
+		}
+		else if(index%4 == (this.myseat+2)%4 ){
+			targetX = 960;
+			targetY = 169;
+		}
+		else if(index%4 == (this.myseat+3)%4 ){
+			targetX = 249;
+			targetY = 500;
+		}
+
+		this.effect_gang.visible = true;
+		this.effect_gang.x = 960;
+		this.effect_gang.y = 540;
+		egret.Tween.get(this.effect_gang)
+			.to({x:targetX, y:targetY},500)
+			.wait(500)
+			.call(()=>{
+				egret.Tween.removeTweens(this.effect_gang);
+				this.effect_gang.visible = false;
+				this.effect_gang.x = 960;
+				this.effect_gang.y = 540;
+			}, this)
+
 	}
 	/**收到某玩家碰了某张牌 */
 	private onPengCard(data: RoomVO): void{
@@ -242,6 +307,39 @@ class RoomUI extends eui.Component{
 		var card = data.content.gangOrPengInfo.card;
 		var showedCards = data.content.gangOrPengInfo.showedCards;
 		console.log("玩家"+index+"碰了牌"+"card"+" 他摆出来的牌有 ", showedCards);
+
+		var targetX = 0;
+		var targetY = 0;
+
+		if(index == this.myseat){
+			targetX = 960;
+			targetY = 891;
+		}
+		else if(index%4 == (this.myseat+1)%4 ){
+			targetX = 1558;
+			targetY = 500;
+		}
+		else if(index%4 == (this.myseat+2)%4 ){
+			targetX = 960;
+			targetY = 169;
+		}
+		else if(index%4 == (this.myseat+3)%4 ){
+			targetX = 249;
+			targetY = 500;
+		}
+
+		this.effect_peng.visible = true;
+		this.effect_peng.x = 960;
+		this.effect_peng.y = 540;
+		egret.Tween.get(this.effect_peng)
+			.to({x:targetX, y:targetY},500)
+			.wait(500)
+			.call(()=>{
+				egret.Tween.removeTweens(this.effect_peng);
+				this.effect_peng.visible = false;
+				this.effect_peng.x = 960;
+				this.effect_peng.y = 540;
+			}, this)
 	}
 	/**收到游戏结束 */
 	private onGameOver(data: RoomVO): void{
@@ -355,6 +453,7 @@ class RoomUI extends eui.Component{
 
 	/**我要碰牌 */
 	private actionPeng(): void{
+		this.actionGroup.visible = false;
 		GameController.getInstance().sendPengCard(this.roomId, this.myseat, (data)=>{
 			if(data.code == 0){
 				console.log("碰牌成功");
@@ -366,6 +465,7 @@ class RoomUI extends eui.Component{
 	}
 	/**我要杠牌 */
 	private actionGang(): void{
+		this.actionGroup.visible = false;
 		GameController.getInstance().sendGangCard(this.roomId, this.myseat, (data)=>{
 			if(data.code == 0){
 				console.log("杠牌成功");
@@ -377,9 +477,11 @@ class RoomUI extends eui.Component{
 	}
 	/**我要胡牌 */
 	private actionHu(): void{
+		this.actionGroup.visible = false;
 		GameController.getInstance().sendHuCard(this.roomId, this.myseat, (data)=>{
 			if(data.code == 0){
 				console.log("胡牌成功");
+				this.setMyCards(this.mycards);
 			}
 			else{
 				console.log("胡牌失败");
@@ -388,6 +490,7 @@ class RoomUI extends eui.Component{
 	}
 	/**我要过牌 */
 	private actionGuo(): void{
+		this.actionGroup.visible = false;
 		GameController.getInstance().sendGuo(this.roomId, this.myseat, (data)=>{
 		}, this);	
 	}
@@ -395,6 +498,16 @@ class RoomUI extends eui.Component{
 	/**刷新自己的牌数据 */
 	private addMyCard(arr:number[]){
 		this.mycards = this.mycards.concat(arr);
+		this.setMyCards(this.mycards);
+	}
+	/**刷新自己的牌数据 */
+	private removeMyCard(arr:number[]){
+		for(var i=0; i<arr.length; i++){
+			var index = this.mycards.indexOf(arr[i]);
+			if(index > -1){
+				this.mycards.splice(index, 1);
+			}
+		}
 		this.setMyCards(this.mycards);
 	}
 	/**将牌按定缺的花色排序，缺的花色排在后面, 没有定缺就按万条同排序 */

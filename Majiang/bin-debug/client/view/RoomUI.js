@@ -79,17 +79,22 @@ var RoomUI = (function (_super) {
                     this.onLackCard(data);
                     break;
                 case this.roomCommand_curPlayIndex:
+                    this.onCurPlayerIndex(data);
                     break;
                 case this.roomCommand_handleCard:
                     this.onHandleCards(data);
                     break;
                 case this.roomCommand_playedCard:
+                    this.onPlayedCards(data);
                     break;
                 case this.roomCommand_huCard:
+                    this.onHuCard(data);
                     break;
                 case this.roomCommand_gangCard:
+                    this.onGangCard(data);
                     break;
                 case this.roomCommand_pengCard:
+                    this.onPengCard(data);
                     break;
                 case this.roomCommand_gameOver:
                     this.onGameOver(data);
@@ -108,6 +113,9 @@ var RoomUI = (function (_super) {
         //自己发牌
         if (data.content.addCards && data.content.addCards.length > 0) {
             this.addMyCard(data.content.addCards);
+        }
+        else if (data.content.removeCards && data.content.removeCards.length > 0) {
+            this.removeMyCard(data.content.removeCards);
         }
         else if (data.content.otherCardNum) {
             var index = data.content.otherCardNum.index;
@@ -176,20 +184,96 @@ var RoomUI = (function (_super) {
         var index = data.content.huInfo.index;
         var card = data.content.huInfo.card;
         console.log("玩家" + index + "胡了牌" + "card");
+        var str = "";
+        if (index == this.myseat) {
+            str == "my";
+        }
+        else if (index % 4 == (this.myseat + 1) % 4) {
+            str == "right";
+        }
+        else if (index % 4 == (this.myseat + 2) % 4) {
+            str == "top";
+        }
+        else if (index % 4 == (this.myseat + 3) % 4) {
+            str == "left";
+        }
+        this["effect_hu_" + str].visible = true;
     };
     /**收到某玩家杠了某张牌 */
     RoomUI.prototype.onGangCard = function (data) {
+        var _this = this;
         var index = data.content.gangOrPengInfo.index;
         var card = data.content.gangOrPengInfo.card;
         var showedCards = data.content.gangOrPengInfo.showedCards;
         console.log("玩家" + index + "杠了牌" + "card" + " 他摆出来的牌有 ", showedCards);
+        var targetX = 0;
+        var targetY = 0;
+        if (index == this.myseat) {
+            targetX = 960;
+            targetY = 891;
+        }
+        else if (index % 4 == (this.myseat + 1) % 4) {
+            targetX = 1558;
+            targetY = 500;
+        }
+        else if (index % 4 == (this.myseat + 2) % 4) {
+            targetX = 960;
+            targetY = 169;
+        }
+        else if (index % 4 == (this.myseat + 3) % 4) {
+            targetX = 249;
+            targetY = 500;
+        }
+        this.effect_gang.visible = true;
+        this.effect_gang.x = 960;
+        this.effect_gang.y = 540;
+        egret.Tween.get(this.effect_gang)
+            .to({ x: targetX, y: targetY }, 500)
+            .wait(500)
+            .call(function () {
+            egret.Tween.removeTweens(_this.effect_gang);
+            _this.effect_gang.visible = false;
+            _this.effect_gang.x = 960;
+            _this.effect_gang.y = 540;
+        }, this);
     };
     /**收到某玩家碰了某张牌 */
     RoomUI.prototype.onPengCard = function (data) {
+        var _this = this;
         var index = data.content.gangOrPengInfo.index;
         var card = data.content.gangOrPengInfo.card;
         var showedCards = data.content.gangOrPengInfo.showedCards;
         console.log("玩家" + index + "碰了牌" + "card" + " 他摆出来的牌有 ", showedCards);
+        var targetX = 0;
+        var targetY = 0;
+        if (index == this.myseat) {
+            targetX = 960;
+            targetY = 891;
+        }
+        else if (index % 4 == (this.myseat + 1) % 4) {
+            targetX = 1558;
+            targetY = 500;
+        }
+        else if (index % 4 == (this.myseat + 2) % 4) {
+            targetX = 960;
+            targetY = 169;
+        }
+        else if (index % 4 == (this.myseat + 3) % 4) {
+            targetX = 249;
+            targetY = 500;
+        }
+        this.effect_peng.visible = true;
+        this.effect_peng.x = 960;
+        this.effect_peng.y = 540;
+        egret.Tween.get(this.effect_peng)
+            .to({ x: targetX, y: targetY }, 500)
+            .wait(500)
+            .call(function () {
+            egret.Tween.removeTweens(_this.effect_peng);
+            _this.effect_peng.visible = false;
+            _this.effect_peng.x = 960;
+            _this.effect_peng.y = 540;
+        }, this);
     };
     /**收到游戏结束 */
     RoomUI.prototype.onGameOver = function (data) {
@@ -297,6 +381,7 @@ var RoomUI = (function (_super) {
     };
     /**我要碰牌 */
     RoomUI.prototype.actionPeng = function () {
+        this.actionGroup.visible = false;
         GameController.getInstance().sendPengCard(this.roomId, this.myseat, function (data) {
             if (data.code == 0) {
                 console.log("碰牌成功");
@@ -308,6 +393,7 @@ var RoomUI = (function (_super) {
     };
     /**我要杠牌 */
     RoomUI.prototype.actionGang = function () {
+        this.actionGroup.visible = false;
         GameController.getInstance().sendGangCard(this.roomId, this.myseat, function (data) {
             if (data.code == 0) {
                 console.log("杠牌成功");
@@ -319,9 +405,12 @@ var RoomUI = (function (_super) {
     };
     /**我要胡牌 */
     RoomUI.prototype.actionHu = function () {
+        var _this = this;
+        this.actionGroup.visible = false;
         GameController.getInstance().sendHuCard(this.roomId, this.myseat, function (data) {
             if (data.code == 0) {
                 console.log("胡牌成功");
+                _this.setMyCards(_this.mycards);
             }
             else {
                 console.log("胡牌失败");
@@ -330,12 +419,23 @@ var RoomUI = (function (_super) {
     };
     /**我要过牌 */
     RoomUI.prototype.actionGuo = function () {
+        this.actionGroup.visible = false;
         GameController.getInstance().sendGuo(this.roomId, this.myseat, function (data) {
         }, this);
     };
     /**刷新自己的牌数据 */
     RoomUI.prototype.addMyCard = function (arr) {
         this.mycards = this.mycards.concat(arr);
+        this.setMyCards(this.mycards);
+    };
+    /**刷新自己的牌数据 */
+    RoomUI.prototype.removeMyCard = function (arr) {
+        for (var i = 0; i < arr.length; i++) {
+            var index = this.mycards.indexOf(arr[i]);
+            if (index > -1) {
+                this.mycards.splice(index, 1);
+            }
+        }
         this.setMyCards(this.mycards);
     };
     /**将牌按定缺的花色排序，缺的花色排在后面, 没有定缺就按万条同排序 */

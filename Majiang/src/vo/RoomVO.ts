@@ -30,6 +30,8 @@ class RoomContent{
 	curPlayIndex: number;
 	/**摸到的牌 */
 	addCards: Array<number>;
+	/**移除的牌 碰或者杠会用到 */
+	removeCards: Array<number>;
 	/**他人牌数变动 */
 	otherCardNum: OtherCardNum;
 	/**剩余的牌 */
