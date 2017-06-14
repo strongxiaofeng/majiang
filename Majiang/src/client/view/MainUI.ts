@@ -18,7 +18,7 @@ class MainUI extends eui.Component{
 		this.startBtn.enabled = false;
 		this.startTween();
 
-		var data = new BaseMsg();
+		var data = new BaseVO();
 		data.command = Commands.MATCH_PLAYER;
 		data.content = {"name": GlobalConfig.username};
 		NetController.getInstance().sendData(data, this.onMatchPlayerBack, this);

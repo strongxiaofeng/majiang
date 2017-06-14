@@ -4,4 +4,5 @@ class Commands {
     public static LOGIN = 3;
     public static MATCH_PLAYER = 4;
     public static PLAY_GAME = 5;
+    public static ROOM_NOTIFY = 6;
 }

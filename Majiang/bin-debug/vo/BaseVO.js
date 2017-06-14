@@ -1,10 +1,10 @@
 var __reflect = (this && this.__reflect) || function (p, c, t) {
     p.__class__ = c, t ? t.push(c) : t = [c], p.__types__ = p.__types__ ? t.concat(p.__types__) : t;
 };
-var BaseMsg = (function () {
-    function BaseMsg() {
+var BaseVO = (function () {
+    function BaseVO() {
     }
-    return BaseMsg;
+    return BaseVO;
 }());
-__reflect(BaseMsg.prototype, "BaseMsg");
-//# sourceMappingURL=BaseMsg.js.map
+__reflect(BaseVO.prototype, "BaseVO");
+//# sourceMappingURL=BaseVO.js.map

@@ -11,5 +11,6 @@ Commands.REGISTER = 2;
 Commands.LOGIN = 3;
 Commands.MATCH_PLAYER = 4;
 Commands.PLAY_GAME = 5;
+Commands.ROOM_NOTIFY = 6;
 __reflect(Commands.prototype, "Commands");
 //# sourceMappingURL=Commands.js.map

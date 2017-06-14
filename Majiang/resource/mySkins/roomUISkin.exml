@@ -82,8 +82,8 @@
 		<e:Image id="myLackImg" x="175" y="978" scaleX="1" scaleY="1" width="50" height="50" source=""/>
 	</e:Group>
 	<e:Group id="cardMsgGroup" width="1" height="1" x="0" y="0">
-		<e:Label id="leftCardTxt" text="还剩牌:108" x="733" y="448" scaleX="1" scaleY="1" size="60" anchorOffsetX="0" width="463" anchorOffsetY="0" height="95" textAlign="center"/>
 		<e:Image id="arrow" source="arrow_png" x="984" y="498" scaleX="1" scaleY="1" width="300" height="30" anchorOffsetY="15" visible="false"/>
+		<e:Label id="leftCardTxt" text="还剩牌:108" x="733" y="448" scaleX="1" scaleY="1" size="60" anchorOffsetX="0" width="463" anchorOffsetY="0" height="95" textAlign="center"/>
 	</e:Group>
 	<e:Group id="lackGroup" width="1" height="1" x="0" y="0" visible="false">
 		<e:Button id="lackBtn_wan" label="" x="496" y="622" scaleX="1" scaleY="1">

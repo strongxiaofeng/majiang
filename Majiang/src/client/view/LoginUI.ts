@@ -41,12 +41,12 @@ class LoginUI extends eui.Component{
 		var name = this.nameInput.text;
 		var psw = this.passInput.text;
 
-		var data = new BaseMsg();
+		var data = new BaseVO();
 		data.command = Commands.LOGIN;
 		data.content = {"name":name, "password":psw};
 		NetController.getInstance().sendData(data, this.loginBack, this);
 	}
-	private loginBack(data:BaseMsg): void{
+	private loginBack(data:BaseVO): void{
 		let code = data.code;
 		if(code==0) {
 			console.log("登录成功");
@@ -62,12 +62,12 @@ class LoginUI extends eui.Component{
 		var name = this.nameInput1.text;
 		var psw = this.passInput1.text;
 
-		var data = new BaseMsg();
+		var data = new BaseVO();
 		data.command = Commands.REGISTER;
 		data.content = {"name":name, "password":psw};
 		NetController.getInstance().sendData(data, this.registerBack, this);
 	}
-	private registerBack(data:BaseMsg): void{
+	private registerBack(data:BaseVO): void{
 		let code = data.code;
 		if(code==0) {
 			console.log("注册成功");

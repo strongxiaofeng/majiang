@@ -10,10 +10,16 @@ var RoomUI = (function (_super) {
     __extends(RoomUI, _super);
     function RoomUI() {
         var _this = _super.call(this) || this;
-        _this.playCommand_sendCard = 0;
-        _this.playCommand_lackCard = 1;
-        _this.playCommand_playCard = 2;
-        _this.playCommand_payout = 3;
+        _this.roomCommand_dice = 1;
+        _this.roomCommand_dealCard = 2;
+        _this.roomCommand_lackCard = 3;
+        _this.roomCommand_curPlayIndex = 4;
+        _this.roomCommand_handleCard = 5;
+        _this.roomCommand_playedCard = 6;
+        _this.roomCommand_huCard = 7;
+        _this.roomCommand_gangCard = 8;
+        _this.roomCommand_pengCard = 9;
+        _this.roomCommand_gameOver = 10;
         /**我的牌数据 */
         _this.mycards = [];
         /**我的定缺 */
@@ -25,12 +31,12 @@ var RoomUI = (function (_super) {
     RoomUI.prototype.init = function () {
         this.initView();
         this.initListeners();
-        this.initData();
+        this.initPlayers();
     };
     RoomUI.prototype.initView = function () {
     };
     RoomUI.prototype.initListeners = function () {
-        MsgListener.getInstance().addListeners(Commands.PLAY_GAME, this);
+        MsgListener.getInstance().addListeners(Commands.ROOM_NOTIFY, this);
         this.lackBtn_wan.addEventListener(egret.TouchEvent.TOUCH_TAP, this.lack, this);
         this.lackBtn_tiao.addEventListener(egret.TouchEvent.TOUCH_TAP, this.lack, this);
         this.lackBtn_tong.addEventListener(egret.TouchEvent.TOUCH_TAP, this.lack, this);
@@ -39,7 +45,7 @@ var RoomUI = (function (_super) {
         this.actionBtn_hu.addEventListener(egret.TouchEvent.TOUCH_TAP, this.actionHu, this);
         this.actionBtn_guo.addEventListener(egret.TouchEvent.TOUCH_TAP, this.actionGuo, this);
     };
-    RoomUI.prototype.initData = function () {
+    RoomUI.prototype.initPlayers = function () {
         var playerData = GameModel.getInstance().roomPlayersData;
         this.playerData = playerData;
         console.log(playerData);
@@ -53,44 +59,60 @@ var RoomUI = (function (_super) {
                 this.setPlayer("left", playerData[(i + 3 > 3 ? i - 1 : i + 3)]);
             }
         }
-        if (playerData[0].name == GlobalConfig.username) {
-        }
     };
     /**收到推送 */
     RoomUI.prototype.receiveMsg = function (command, data) {
         console.log("收到推送的事件 " + command, data);
-        if (command == Commands.PLAY_GAME) {
+        if (command == Commands.ROOM_NOTIFY) {
+            if (data.content.roomId) {
+                console.log("房间id " + data.content.roomId);
+                this.roomId = data.content.roomId;
+            }
             switch (data.content.state) {
-                case this.playCommand_sendCard:
+                case this.roomCommand_dice:
+                    this.onDice(data);
+                    break;
+                case this.roomCommand_dealCard:
                     this.onCards(data);
                     break;
-                case this.playCommand_lackCard:
+                case this.roomCommand_lackCard:
                     this.onLackCard(data);
                     break;
-                case this.playCommand_playCard:
-                    this.onPlayCard(data);
+                case this.roomCommand_curPlayIndex:
                     break;
-                case this.playCommand_payout:
-                    this.onPayout(data);
+                case this.roomCommand_handleCard:
+                    this.onHandleCards(data);
+                    break;
+                case this.roomCommand_playedCard:
+                    break;
+                case this.roomCommand_huCard:
+                    break;
+                case this.roomCommand_gangCard:
+                    break;
+                case this.roomCommand_pengCard:
+                    break;
+                case this.roomCommand_gameOver:
+                    this.onGameOver(data);
                     break;
             }
         }
     };
-    /**收到新牌，自己的或者别人的 */
+    /**收到骰子和庄家 */
+    RoomUI.prototype.onDice = function (data) {
+        var dice = data.content.dice;
+        var curPlayerIndex = data.content.curPlayIndex;
+        console.log("收到骰子结果 ", dice, " 初始庄家 ", curPlayerIndex);
+    };
+    /**收到发牌，自己的或者别人的 */
     RoomUI.prototype.onCards = function (data) {
-        if (data.content.roomId) {
-            console.log("房间id " + data.content.roomId);
-            this.roomId = data.content.roomId;
-        }
         //自己发牌
-        if (data.content.addCards) {
+        if (data.content.addCards && data.content.addCards.length > 0) {
             this.addMyCard(data.content.addCards);
         }
         else if (data.content.otherCardNum) {
-            var otherCardNum = data.content.otherCardNum;
-            for (var index in otherCardNum) {
-                this.setOtherCardNum(index, otherCardNum[index]);
-            }
+            var index = data.content.otherCardNum.index;
+            var num = data.content.otherCardNum.num;
+            this.setOtherCardNum(index, num);
         }
         this.setLeftCardNum(data.content.leftCardsNum);
     };
@@ -118,11 +140,62 @@ var RoomUI = (function (_super) {
             this.leftLackImg.source = "lack" + arr[i] + "_png";
         }
         else {
-            //通知定缺
+            //通知玩家开始定缺
             this.lackGroup.visible = true;
         }
     };
-    /**定缺 */
+    /**收到当前出牌人，刷新箭头指向位置 */
+    RoomUI.prototype.onCurPlayerIndex = function (data) {
+        this.setArrow(data.content.curPlayIndex);
+    };
+    /**收到可以碰/杠/胡/出牌 */
+    RoomUI.prototype.onHandleCards = function (data) {
+        /**我可以杠 */
+        var gangAble = data.content.gangAble;
+        /**我可以胡 */
+        var huAble = data.content.huAble;
+        /**我可以碰 */
+        var pengAble = data.content.pengAble;
+        /**我是否可以出牌 */
+        var playAble = data.content.playAble;
+        if (playAble) {
+            this.setPlayCardAble();
+        }
+        if (gangAble || huAble || pengAble) {
+            this.setHandleCard(huAble, gangAble, pengAble);
+        }
+    };
+    /**收到某玩家出过的牌，最后一个元素表示新出的 */
+    RoomUI.prototype.onPlayedCards = function (data) {
+        var index = data.content.playedCards.index;
+        var cards = data.content.playedCards.cards;
+        this.showPlayedCard(index, cards.pop());
+    };
+    /**收到某玩家胡了某张牌 */
+    RoomUI.prototype.onHuCard = function (data) {
+        var index = data.content.huInfo.index;
+        var card = data.content.huInfo.card;
+        console.log("玩家" + index + "胡了牌" + "card");
+    };
+    /**收到某玩家杠了某张牌 */
+    RoomUI.prototype.onGangCard = function (data) {
+        var index = data.content.gangOrPengInfo.index;
+        var card = data.content.gangOrPengInfo.card;
+        var showedCards = data.content.gangOrPengInfo.showedCards;
+        console.log("玩家" + index + "杠了牌" + "card" + " 他摆出来的牌有 ", showedCards);
+    };
+    /**收到某玩家碰了某张牌 */
+    RoomUI.prototype.onPengCard = function (data) {
+        var index = data.content.gangOrPengInfo.index;
+        var card = data.content.gangOrPengInfo.card;
+        var showedCards = data.content.gangOrPengInfo.showedCards;
+        console.log("玩家" + index + "碰了牌" + "card" + " 他摆出来的牌有 ", showedCards);
+    };
+    /**收到游戏结束 */
+    RoomUI.prototype.onGameOver = function (data) {
+        console.log("游戏结束");
+    };
+    /**我要定缺 */
     RoomUI.prototype.lack = function (e) {
         this.lackGroup.visible = false;
         var str = "";
@@ -135,42 +208,11 @@ var RoomUI = (function (_super) {
         else if (e.target == this.lackBtn_tong) {
             str = "tong";
         }
-        var data = new BaseMsg();
-        data.command = Commands.PLAY_GAME;
-        data.content = { "roomId": this.roomId, "index": this.myseat, "state": this.playCommand_lackCard, "lackCard": str };
-        NetController.getInstance().sendData(data, function (d) {
-            if (d.code == 0) {
+        GameController.getInstance().sendLack(this.roomId, this.myseat, str, function (data) {
+            if (data.code == 0) {
+                console.log("定缺成功");
             }
         }, this);
-    };
-    /**该某人做动作了 */
-    RoomUI.prototype.onPlayCard = function (data) {
-        /**我可以杠 */
-        var gangAble = data.content.gangAble;
-        /**我可以胡 */
-        var huAble = data.content.huAble;
-        /**我可以碰 */
-        var pengAble = data.content.pengAble;
-        /**该谁出牌 */
-        var playIndex = data.content.playIndex;
-        /**我是否可以出牌 */
-        var playAble = data.content.playAble;
-        var action = data.content.action;
-        var card = data.content.card;
-        var index = data.content.index;
-        if (action == "play" && card >= 0 && index >= 0) {
-            console.log("玩家" + index + "出牌了 " + card);
-            this.showPlayedCard(index, card);
-        }
-        this.setArrow(playIndex);
-        //我可以出一张牌
-        if (playAble && playIndex == this.myseat) {
-            console.log("我可以出牌");
-            this.setPlayCardAble();
-        }
-        if (gangAble || huAble || pengAble) {
-            this.onHandleCard(huAble, gangAble, pengAble);
-        }
     };
     /**设置箭头指向出牌的人 */
     RoomUI.prototype.setArrow = function (index) {
@@ -188,12 +230,12 @@ var RoomUI = (function (_super) {
             this.arrow.rotation = 180;
         }
     };
-    /**我可以出牌了，给牌加事件 */
+    /**我可以出牌了 */
     RoomUI.prototype.setPlayCardAble = function () {
         var _this = this;
+        console.log("我可以出牌");
         var num = this.myCardGroup.numChildren;
         for (var i = 0; i < num; i++) {
-            console.log("注册鼠标事件");
             var cardImg = this.myCardGroup.getChildAt(i);
             cardImg.addEventListener(egret.TouchEvent.TOUCH_TAP, function (e) {
                 console.log("点击牌 " + e.target.name);
@@ -220,19 +262,19 @@ var RoomUI = (function (_super) {
     RoomUI.prototype.onCardOut = function (card) {
         var _this = this;
         var cardValue = parseInt(card.name);
-        var data = new BaseMsg();
-        data.command = Commands.PLAY_GAME;
-        data.content = { "roomId": this.roomId, "index": this.myseat, "state": this.playCommand_playCard, "action": "play", "card": cardValue };
-        NetController.getInstance().sendData(data, function (d) {
-            if (d.code == 0) {
+        GameController.getInstance().sendPlayCard(this.roomId, this.myseat, cardValue, function (data) {
+            if (data.code == 0) {
                 console.log("出牌成功");
                 _this.showPlayedCard(_this.myseat, cardValue);
                 _this.mycards.splice(_this.mycards.indexOf(cardValue), 1);
                 _this.setMyCards(_this.mycards);
             }
+            else {
+                console.log("出牌失败");
+            }
         }, this);
     };
-    /**移一张推荐出的牌到最右边 */
+    /**推荐一张牌到最右边 */
     RoomUI.prototype.setSuggestPlayCard = function () {
         var card = this.myCardGroup.getChildAt(this.myCardGroup.numChildren - 1);
         card.x += 50;
@@ -243,8 +285,8 @@ var RoomUI = (function (_super) {
         this.playedName.text = this.playerData[index].name + "出牌了：";
         this.playedCard.source = CardUtil.getCardRourceByNum(card);
     };
-    /**我可以选择 碰/杠/胡/过 了 */
-    RoomUI.prototype.onHandleCard = function (huAble, gangAble, pengAble) {
+    /**设置选择 碰/杠/胡 哪些可以点击 哪些不能点 */
+    RoomUI.prototype.setHandleCard = function (huAble, gangAble, pengAble) {
         this.actionGroup.visible = true;
         this.actionBtn_peng.enabled = pengAble;
         this.actionBtn_gang.enabled = gangAble;
@@ -255,18 +297,41 @@ var RoomUI = (function (_super) {
     };
     /**我要碰牌 */
     RoomUI.prototype.actionPeng = function () {
+        GameController.getInstance().sendPengCard(this.roomId, this.myseat, function (data) {
+            if (data.code == 0) {
+                console.log("碰牌成功");
+            }
+            else {
+                console.log("碰牌失败");
+            }
+        }, this);
     };
     /**我要杠牌 */
     RoomUI.prototype.actionGang = function () {
+        GameController.getInstance().sendGangCard(this.roomId, this.myseat, function (data) {
+            if (data.code == 0) {
+                console.log("杠牌成功");
+            }
+            else {
+                console.log("杠牌失败");
+            }
+        }, this);
     };
     /**我要胡牌 */
     RoomUI.prototype.actionHu = function () {
+        GameController.getInstance().sendHuCard(this.roomId, this.myseat, function (data) {
+            if (data.code == 0) {
+                console.log("胡牌成功");
+            }
+            else {
+                console.log("胡牌失败");
+            }
+        }, this);
     };
     /**我要过牌 */
     RoomUI.prototype.actionGuo = function () {
-    };
-    /**派彩 */
-    RoomUI.prototype.onPayout = function (data) {
+        GameController.getInstance().sendGuo(this.roomId, this.myseat, function (data) {
+        }, this);
     };
     /**刷新自己的牌数据 */
     RoomUI.prototype.addMyCard = function (arr) {

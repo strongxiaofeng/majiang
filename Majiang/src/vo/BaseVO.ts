@@ -1,4 +1,4 @@
-class BaseMsg {
+class BaseVO {
 	
 	public command: number;
 	public code: number;

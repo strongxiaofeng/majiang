@@ -24,7 +24,7 @@ class NetController {
 	}
 
 	/**收到数据 */
-	public readData(msg:BaseMsg): void{
+	public readData(msg:BaseVO): void{
 		let sqs = msg.sequence;
 		if(sqs){
 			let cb = this.callbackPool[sqs];
@@ -41,7 +41,7 @@ class NetController {
 		}
 	}
 	/**发出数据 */
-	public sendData(data: BaseMsg, callback:Function=null, thisObj:any=null): void{
+	public sendData(data: BaseVO, callback:Function=null, thisObj:any=null): void{
 		data.sequence = this.sequence++;
 		this.ws.sendData(JSON.stringify(data));
 

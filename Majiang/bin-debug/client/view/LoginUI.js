@@ -30,7 +30,7 @@ var LoginUI = (function (_super) {
     LoginUI.prototype.sendLogin = function () {
         var name = this.nameInput.text;
         var psw = this.passInput.text;
-        var data = new BaseMsg();
+        var data = new BaseVO();
         data.command = Commands.LOGIN;
         data.content = { "name": name, "password": psw };
         NetController.getInstance().sendData(data, this.loginBack, this);
@@ -50,7 +50,7 @@ var LoginUI = (function (_super) {
     LoginUI.prototype.sendRegister = function () {
         var name = this.nameInput1.text;
         var psw = this.passInput1.text;
-        var data = new BaseMsg();
+        var data = new BaseVO();
         data.command = Commands.REGISTER;
         data.content = { "name": name, "password": psw };
         NetController.getInstance().sendData(data, this.registerBack, this);
