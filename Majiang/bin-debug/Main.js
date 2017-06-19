@@ -136,7 +136,7 @@ var Main = (function (_super) {
     Main.prototype.startCreateScene = function () {
         UIManager.getInstance().setRoot(this);
         UIManager.getInstance().openUI("LoginUI");
-        this.test();
+        // this.test();
     };
     Main.prototype.test = function () {
         for (var i = 0; i < 4; i++) {
