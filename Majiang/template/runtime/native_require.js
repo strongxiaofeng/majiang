@@ -17,6 +17,7 @@ var game_file_list = [
 	"bin-debug/client/manager/UIManager.js",
 	"bin-debug/client/model/GameModel.js",
 	"bin-debug/client/util/CardUtil.js",
+	"bin-debug/client/view/Card.js",
 	"bin-debug/client/view/LoginUI.js",
 	"bin-debug/client/view/MainUI.js",
 	"bin-debug/client/view/RoomUI.js",

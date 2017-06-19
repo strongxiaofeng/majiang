@@ -247,16 +247,16 @@ class RoomUI extends eui.Component{
 
 		var str = "";
 		if(index == this.myseat){
-			str == "my";
+			str = "my";
 		}
 		else if(index%4 == (this.myseat+1)%4 ){
-			str == "right";
+			str = "right";
 		}
 		else if(index%4 == (this.myseat+2)%4 ){
-			str == "top";
+			str = "top";
 		}
 		else if(index%4 == (this.myseat+3)%4 ){
-			str == "left";
+			str = "left";
 		}
 		this["effect_hu_"+str].visible = true;
 	}
@@ -390,8 +390,8 @@ class RoomUI extends eui.Component{
 		console.log("我可以出牌");
 		var num = this.myCardGroup.numChildren;
 		for(var i=0; i<num; i++){
-			var cardImg:eui.Image = <eui.Image>this.myCardGroup.getChildAt(i);
-			cardImg.addEventListener(egret.TouchEvent.TOUCH_TAP, (e:egret.Event)=>{
+			var card:Card = <Card>this.myCardGroup.getChildAt(i);
+			card.addEventListener(egret.TouchEvent.TOUCH_TAP, (e:egret.Event)=>{
 				console.log("点击牌 "+e.target.name);
 				if(e.target.y == 900){
 					this.onCardChoosed(e.target);
@@ -404,20 +404,20 @@ class RoomUI extends eui.Component{
 		this.setSuggestPlayCard();
 	}
 	/**鼠标选中一张 */
-	private onCardChoosed(img:eui.Image):void{
+	private onCardChoosed(c:Card):void{
 		var num = this.myCardGroup.numChildren;
 		for(var i=0; i<num; i++){
-			var card:eui.Image = <eui.Image>this.myCardGroup.getChildAt(i);
+			var card:Card = <Card>this.myCardGroup.getChildAt(i);
 			card.y = 900;
 		}
-		img.y = 860;
+		c.y = 860;
 	}
 	/**出牌 */
-	private onCardOut(card:eui.Image):void{
+	private onCardOut(card:Card):void{
 		//出牌时也要隐藏杠胡选择面板
 		this.actionGroup.visible = false;
 		
-		var cardValue:number = parseInt(card.name);
+		var cardValue:number = card.num;
 		GameController.getInstance().sendPlayCard(this.roomId, this.myseat, cardValue, (data)=>{
 			if(data.code==0){
 				console.log("出牌成功");
@@ -432,7 +432,7 @@ class RoomUI extends eui.Component{
 	}
 	/**推荐一张牌到最右边 */
 	private setSuggestPlayCard(): void{
-		var card:eui.Image = <eui.Image>this.myCardGroup.getChildAt(this.myCardGroup.numChildren-1);
+		var card:Card = <Card>this.myCardGroup.getChildAt(this.myCardGroup.numChildren-1);
 		card.x += 50;
 	}
 	/**有人出牌了 */
@@ -576,21 +576,19 @@ class RoomUI extends eui.Component{
 		//显示牌的中心点是960 每个牌宽100
 		var startx = 960-arr.length*50
 		for(var i=0;i<arr.length;i++) {
-			var src = CardUtil.getCardRourceByNum(arr[i]);
-			var img:eui.Image = new eui.Image(src);
-			img.x = startx+i*100;
-			img.y = 900;
-			img.name = arr[i]+"";
-			this.myCardGroup.addChild(img);
+			var card = new Card(0,0,arr[i])
+			card.x = startx+i*100;
+			card.y = 900;
+			this.myCardGroup.addChild(card);
 
 			if(this.myLack == "wan" && arr[i]<36){
-				img.alpha = 0.6;
+				card.alpha = 0.6;
 			}
 			else if(this.myLack == "tiao" && arr[i]>=36 && arr[i]<72){
-				img.alpha = 0.6;
+				card.alpha = 0.6;
 			}
 			else if(this.myLack == "tong" && arr[i]>=72){
-				img.alpha = 0.6;
+				card.alpha = 0.6;
 			}
 		}
 

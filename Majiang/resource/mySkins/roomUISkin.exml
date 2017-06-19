@@ -19,52 +19,52 @@
             <e:Image source="tiao1_png" x="1596" y="900" scaleX="1" scaleY="1" width="100" height="160"/>
 		</e:Group>
 		<e:Group id="leftCatdGroup" width="1" height="1" x="0" y="0" scaleX="1" scaleY="1">
-			<e:Image source="cardbgleft_png" x="346" y="202" width="34" height="86" scaleX="1" scaleY="1"/>
-			<e:Image source="cardbgleft_png" x="332" y="242" width="34" height="86" scaleX="1" scaleY="1"/>
-			<e:Image source="cardbgleft_png" x="322" y="282" width="34" height="86" scaleX="1" scaleY="1"/>
-			<e:Image source="cardbgleft_png" x="312" y="322" width="34" height="86" scaleX="1" scaleY="1"/>
-			<e:Image source="cardbgleft_png" x="302" y="362" width="34" height="86" scaleX="1" scaleY="1"/>
-			<e:Image source="cardbgleft_png" x="292" y="402" width="34" height="86" scaleX="1" scaleY="1"/>
-			<e:Image source="cardbgleft_png" x="282" y="442" width="34" height="86" scaleX="1" scaleY="1"/>
-			<e:Image source="cardbgleft_png" x="272" y="482" width="34" height="86" scaleX="1" scaleY="1"/>
-			<e:Image source="cardbgleft_png" x="262" y="522" width="34" height="86" scaleX="1" scaleY="1"/>
-			<e:Image source="cardbgleft_png" x="252" y="562" width="34" height="86" scaleX="1" scaleY="1"/>
-			<e:Image source="cardbgleft_png" x="242" y="602" width="34" height="86" scaleX="1" scaleY="1"/>
-			<e:Image source="cardbgleft_png" x="232" y="642" width="34" height="86" scaleX="1" scaleY="1"/>
-			<e:Image source="cardbgleft_png" x="222" y="682" width="34" height="86" scaleX="1" scaleY="1"/>
-			<e:Image source="cardbgleft_png" x="212" y="722" width="34" height="86" scaleX="1" scaleY="1"/>
+			<e:Image source="cardbg_left_png" x="346" y="202" width="34" height="86" scaleX="1" scaleY="1"/>
+			<e:Image source="cardbg_left_png" x="332" y="242" width="34" height="86" scaleX="1" scaleY="1"/>
+			<e:Image source="cardbg_left_png" x="322" y="282" width="34" height="86" scaleX="1" scaleY="1"/>
+			<e:Image source="cardbg_left_png" x="312" y="322" width="34" height="86" scaleX="1" scaleY="1"/>
+			<e:Image source="cardbg_left_png" x="302" y="362" width="34" height="86" scaleX="1" scaleY="1"/>
+			<e:Image source="cardbg_left_png" x="292" y="402" width="34" height="86" scaleX="1" scaleY="1"/>
+			<e:Image source="cardbg_left_png" x="282" y="442" width="34" height="86" scaleX="1" scaleY="1"/>
+			<e:Image source="cardbg_left_png" x="272" y="482" width="34" height="86" scaleX="1" scaleY="1"/>
+			<e:Image source="cardbg_left_png" x="262" y="522" width="34" height="86" scaleX="1" scaleY="1"/>
+			<e:Image source="cardbg_left_png" x="252" y="562" width="34" height="86" scaleX="1" scaleY="1"/>
+			<e:Image source="cardbg_left_png" x="242" y="602" width="34" height="86" scaleX="1" scaleY="1"/>
+			<e:Image source="cardbg_left_png" x="232" y="642" width="34" height="86" scaleX="1" scaleY="1"/>
+			<e:Image source="cardbg_left_png" x="222" y="682" width="34" height="86" scaleX="1" scaleY="1"/>
+			<e:Image source="cardbg_left_png" x="212" y="722" width="34" height="86" scaleX="1" scaleY="1"/>
 		</e:Group>
 		<e:Group id="rightCatdGroup" width="1" height="1" x="0" y="0" scaleX="1" scaleY="1">
-			<e:Image source="cardbgleft_png" x="1565" y="202" width="34" height="86" scaleX="-1" scaleY="1"/>
-			<e:Image source="cardbgleft_png" x="1575" y="242" width="34" height="86" scaleX="-1" scaleY="1"/>
-			<e:Image source="cardbgleft_png" x="1585" y="282" width="34" height="86" scaleX="-1" scaleY="1"/>
-			<e:Image source="cardbgleft_png" x="1595" y="322" width="34" height="86" scaleX="-1" scaleY="1"/>
-			<e:Image source="cardbgleft_png" x="1605" y="362" width="34" height="86" scaleX="-1" scaleY="1"/>
-			<e:Image source="cardbgleft_png" x="1615" y="402" width="34" height="86" scaleX="-1" scaleY="1"/>
-			<e:Image source="cardbgleft_png" x="1625" y="442" width="34" height="86" scaleX="-1" scaleY="1"/>
-			<e:Image source="cardbgleft_png" x="1635" y="482" width="34" height="86" scaleX="-1" scaleY="1"/>
-			<e:Image source="cardbgleft_png" x="1645" y="522" width="34" height="86" scaleX="-1" scaleY="1"/>
-			<e:Image source="cardbgleft_png" x="1655" y="562" width="34" height="86" scaleX="-1" scaleY="1"/>
-			<e:Image source="cardbgleft_png" x="1665" y="602" width="34" height="86" scaleX="-1" scaleY="1"/>
-			<e:Image source="cardbgleft_png" x="1675" y="642" width="34" height="86" scaleX="-1" scaleY="1"/>
-			<e:Image source="cardbgleft_png" x="1685" y="682" width="34" height="86" scaleX="-1" scaleY="1"/>
-			<e:Image source="cardbgleft_png" x="1685" y="722" width="34" height="86" scaleX="-1" scaleY="1"/>
+			<e:Image source="cardbg_left_png" x="1565" y="202" width="34" height="86" scaleX="-1" scaleY="1"/>
+			<e:Image source="cardbg_left_png" x="1575" y="242" width="34" height="86" scaleX="-1" scaleY="1"/>
+			<e:Image source="cardbg_left_png" x="1585" y="282" width="34" height="86" scaleX="-1" scaleY="1"/>
+			<e:Image source="cardbg_left_png" x="1595" y="322" width="34" height="86" scaleX="-1" scaleY="1"/>
+			<e:Image source="cardbg_left_png" x="1605" y="362" width="34" height="86" scaleX="-1" scaleY="1"/>
+			<e:Image source="cardbg_left_png" x="1615" y="402" width="34" height="86" scaleX="-1" scaleY="1"/>
+			<e:Image source="cardbg_left_png" x="1625" y="442" width="34" height="86" scaleX="-1" scaleY="1"/>
+			<e:Image source="cardbg_left_png" x="1635" y="482" width="34" height="86" scaleX="-1" scaleY="1"/>
+			<e:Image source="cardbg_left_png" x="1645" y="522" width="34" height="86" scaleX="-1" scaleY="1"/>
+			<e:Image source="cardbg_left_png" x="1655" y="562" width="34" height="86" scaleX="-1" scaleY="1"/>
+			<e:Image source="cardbg_left_png" x="1665" y="602" width="34" height="86" scaleX="-1" scaleY="1"/>
+			<e:Image source="cardbg_left_png" x="1675" y="642" width="34" height="86" scaleX="-1" scaleY="1"/>
+			<e:Image source="cardbg_left_png" x="1685" y="682" width="34" height="86" scaleX="-1" scaleY="1"/>
+			<e:Image source="cardbg_left_png" x="1685" y="722" width="34" height="86" scaleX="-1" scaleY="1"/>
 		</e:Group>
 		<e:Group id="topCatdGroup" width="1" height="1" x="0" y="0" scaleX="1" scaleY="1">
-			<e:Image x="483" y="71" scaleX="1" scaleY="1" source="backCard_png" width="70" height="110"/>
-			<e:Image x="553" y="71" scaleX="1" scaleY="1" source="backCard_png" width="70" height="110"/>
-			<e:Image x="623" y="71" scaleX="1" scaleY="1" source="backCard_png" width="70" height="110"/>
-			<e:Image x="693" y="71" scaleX="1" scaleY="1" source="backCard_png" width="70" height="110"/>
-			<e:Image x="763" y="71" scaleX="1" scaleY="1" source="backCard_png" width="70" height="110"/>
-			<e:Image x="833" y="71" scaleX="1" scaleY="1" source="backCard_png" width="70" height="110"/>
-			<e:Image x="903" y="71" scaleX="1" scaleY="1" source="backCard_png" width="70" height="110"/>
-			<e:Image x="973" y="71" scaleX="1" scaleY="1" source="backCard_png" width="70" height="110"/>
-			<e:Image x="1043" y="71" scaleX="1" scaleY="1" source="backCard_png" width="70" height="110"/>
-			<e:Image x="1113" y="71" scaleX="1" scaleY="1" source="backCard_png" width="70" height="110"/>
-			<e:Image x="1183" y="71" scaleX="1" scaleY="1" source="backCard_png" width="70" height="110"/>
-			<e:Image x="1253" y="71" scaleX="1" scaleY="1" source="backCard_png" width="70" height="110"/>
-			<e:Image x="1323" y="71" scaleX="1" scaleY="1" source="backCard_png" width="70" height="110"/>
-			<e:Image x="1393" y="71" scaleX="1" scaleY="1" source="backCard_png" width="70" height="110"/>
+			<e:Image x="483" y="71" scaleX="1" scaleY="1" source="cardbg_top_png" width="70" height="110"/>
+			<e:Image x="553" y="71" scaleX="1" scaleY="1" source="cardbg_top_png" width="70" height="110"/>
+			<e:Image x="623" y="71" scaleX="1" scaleY="1" source="cardbg_top_png" width="70" height="110"/>
+			<e:Image x="693" y="71" scaleX="1" scaleY="1" source="cardbg_top_png" width="70" height="110"/>
+			<e:Image x="763" y="71" scaleX="1" scaleY="1" source="cardbg_top_png" width="70" height="110"/>
+			<e:Image x="833" y="71" scaleX="1" scaleY="1" source="cardbg_top_png" width="70" height="110"/>
+			<e:Image x="903" y="71" scaleX="1" scaleY="1" source="cardbg_top_png" width="70" height="110"/>
+			<e:Image x="973" y="71" scaleX="1" scaleY="1" source="cardbg_top_png" width="70" height="110"/>
+			<e:Image x="1043" y="71" scaleX="1" scaleY="1" source="cardbg_top_png" width="70" height="110"/>
+			<e:Image x="1113" y="71" scaleX="1" scaleY="1" source="cardbg_top_png" width="70" height="110"/>
+			<e:Image x="1183" y="71" scaleX="1" scaleY="1" source="cardbg_top_png" width="70" height="110"/>
+			<e:Image x="1253" y="71" scaleX="1" scaleY="1" source="cardbg_top_png" width="70" height="110"/>
+			<e:Image x="1323" y="71" scaleX="1" scaleY="1" source="cardbg_top_png" width="70" height="110"/>
+			<e:Image x="1393" y="71" scaleX="1" scaleY="1" source="cardbg_top_png" width="70" height="110"/>
 		</e:Group>
 	</e:Group>
 	<e:Group id="playerGroup" width="1" height="1" x="0" y="0">

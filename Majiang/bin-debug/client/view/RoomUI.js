@@ -186,16 +186,16 @@ var RoomUI = (function (_super) {
         console.log("玩家" + index + "胡了牌" + "card");
         var str = "";
         if (index == this.myseat) {
-            str == "my";
+            str = "my";
         }
         else if (index % 4 == (this.myseat + 1) % 4) {
-            str == "right";
+            str = "right";
         }
         else if (index % 4 == (this.myseat + 2) % 4) {
-            str == "top";
+            str = "top";
         }
         else if (index % 4 == (this.myseat + 3) % 4) {
-            str == "left";
+            str = "left";
         }
         this["effect_hu_" + str].visible = true;
     };
@@ -320,8 +320,8 @@ var RoomUI = (function (_super) {
         console.log("我可以出牌");
         var num = this.myCardGroup.numChildren;
         for (var i = 0; i < num; i++) {
-            var cardImg = this.myCardGroup.getChildAt(i);
-            cardImg.addEventListener(egret.TouchEvent.TOUCH_TAP, function (e) {
+            var card = this.myCardGroup.getChildAt(i);
+            card.addEventListener(egret.TouchEvent.TOUCH_TAP, function (e) {
                 console.log("点击牌 " + e.target.name);
                 if (e.target.y == 900) {
                     _this.onCardChoosed(e.target);
@@ -334,18 +334,20 @@ var RoomUI = (function (_super) {
         this.setSuggestPlayCard();
     };
     /**鼠标选中一张 */
-    RoomUI.prototype.onCardChoosed = function (img) {
+    RoomUI.prototype.onCardChoosed = function (c) {
         var num = this.myCardGroup.numChildren;
         for (var i = 0; i < num; i++) {
             var card = this.myCardGroup.getChildAt(i);
             card.y = 900;
         }
-        img.y = 860;
+        c.y = 860;
     };
     /**出牌 */
     RoomUI.prototype.onCardOut = function (card) {
         var _this = this;
-        var cardValue = parseInt(card.name);
+        //出牌时也要隐藏杠胡选择面板
+        this.actionGroup.visible = false;
+        var cardValue = card.num;
         GameController.getInstance().sendPlayCard(this.roomId, this.myseat, cardValue, function (data) {
             if (data.code == 0) {
                 console.log("出牌成功");
@@ -499,20 +501,18 @@ var RoomUI = (function (_super) {
         //显示牌的中心点是960 每个牌宽100
         var startx = 960 - arr.length * 50;
         for (var i = 0; i < arr.length; i++) {
-            var src = CardUtil.getCardRourceByNum(arr[i]);
-            var img = new eui.Image(src);
-            img.x = startx + i * 100;
-            img.y = 900;
-            img.name = arr[i] + "";
-            this.myCardGroup.addChild(img);
+            var card = new Card(0, 0, arr[i]);
+            card.x = startx + i * 100;
+            card.y = 900;
+            this.myCardGroup.addChild(card);
             if (this.myLack == "wan" && arr[i] < 36) {
-                img.alpha = 0.6;
+                card.alpha = 0.6;
             }
             else if (this.myLack == "tiao" && arr[i] >= 36 && arr[i] < 72) {
-                img.alpha = 0.6;
+                card.alpha = 0.6;
             }
             else if (this.myLack == "tong" && arr[i] >= 72) {
-                img.alpha = 0.6;
+                card.alpha = 0.6;
             }
         }
     };

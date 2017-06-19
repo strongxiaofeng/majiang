@@ -131,6 +131,19 @@ class Main extends eui.UILayer {
     protected startCreateScene(): void {
         UIManager.getInstance().setRoot(this);
         UIManager.getInstance().openUI("LoginUI");
+
+        // this.test();
     }
    
+    private test(){
+        for(var i=0; i<4; i++){
+            for(var j=0; j<3; j++){
+
+                var card = new Card(i,j,1);
+                card.x = i*100+200;
+                card.y = j*200+100;
+                this.addChild(card);
+            }
+        }
+    }
 }

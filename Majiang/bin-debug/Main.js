@@ -136,6 +136,17 @@ var Main = (function (_super) {
     Main.prototype.startCreateScene = function () {
         UIManager.getInstance().setRoot(this);
         UIManager.getInstance().openUI("LoginUI");
+        this.test();
+    };
+    Main.prototype.test = function () {
+        for (var i = 0; i < 4; i++) {
+            for (var j = 0; j < 3; j++) {
+                var card = new Card(i, j, 1);
+                card.x = i * 100 + 200;
+                card.y = j * 200 + 100;
+                this.addChild(card);
+            }
+        }
     };
     return Main;
 }(eui.UILayer));
