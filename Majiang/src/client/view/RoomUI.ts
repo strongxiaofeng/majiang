@@ -414,8 +414,10 @@ class RoomUI extends eui.Component{
 	}
 	/**出牌 */
 	private onCardOut(card:eui.Image):void{
+		//出牌时也要隐藏杠胡选择面板
+		this.actionGroup.visible = false;
+		
 		var cardValue:number = parseInt(card.name);
-
 		GameController.getInstance().sendPlayCard(this.roomId, this.myseat, cardValue, (data)=>{
 			if(data.code==0){
 				console.log("出牌成功");

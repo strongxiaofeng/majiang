@@ -22,4 +22,13 @@ class CardUtil {
 		}
 	}
 
+	/**创建一张牌 
+	 * 
+	 * num:点数
+	 * type:0 我的牌 1我的打开的牌 2右边打开 3上面打开 4左边打开
+	*/
+	public static getCardViewByNum(num, type){
+
+	}
+
 }
