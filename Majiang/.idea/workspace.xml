@@ -1,0 +1,618 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="0b171f53-ae7d-42ce-87d4-1d9f94ea305c" name="Default" comment="" />
+    <ignored path="Majiang.iws" />
+    <ignored path=".idea/workspace.xml" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
+  <component name="CreatePatchCommitExecutor">
+    <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="DaemonCodeAnalyzer">
+    <disable_hints />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="FavoritesManager">
+    <favorites_list name="Majiang" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file leaf-file-name="RoomUI.ts" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/client/view/RoomUI.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.4982079" vertical-offset="3961" max-vertical-offset="4906">
+              <caret line="744" column="33" selection-start-line="744" selection-start-column="33" selection-end-line="744" selection-end-column="33" />
+              <folding>
+                <element signature="e#1452#1464#0" expanded="false" />
+                <element signature="e#1500#1510#0" expanded="false" />
+                <element signature="e#1543#1552#0" expanded="false" />
+                <element signature="e#1585#1595#0" expanded="false" />
+                <element signature="e#2003#2018#0" expanded="false" />
+                <element signature="e#2044#2056#0" expanded="false" />
+                <element signature="e#2091#2102#0" expanded="false" />
+                <element signature="e#2141#2152#0" expanded="false" />
+                <element signature="e#2193#2206#0" expanded="false" />
+                <element signature="e#2243#2255#0" expanded="false" />
+                <element signature="e#2296#2308#0" expanded="false" />
+                <element signature="e#2351#2364#0" expanded="false" />
+                <element signature="e#2399#2411#0" expanded="false" />
+                <element signature="e#2450#2462#0" expanded="false" />
+                <element signature="e#2503#2516#0" expanded="false" />
+                <element signature="e#2552#2564#0" expanded="false" />
+                <element signature="e#2604#2616#0" expanded="false" />
+                <element signature="e#2659#2669#0" expanded="false" />
+                <element signature="e#2698#2708#0" expanded="false" />
+                <element signature="n#!!block;n#constructor#0;n#RoomUI#0" expanded="false" />
+                <element signature="n#!!block;n#init#0;n#RoomUI#0" expanded="false" />
+                <element signature="n#!!block;n#initView#0;n#RoomUI#0" expanded="false" />
+                <element signature="n#!!block;n#initListeners#0;n#RoomUI#0" expanded="false" />
+                <element signature="n#!!block;n#initPlayers#0;n#RoomUI#0" expanded="false" />
+                <element signature="e#3855#4181#0" expanded="false" />
+                <element signature="e#3924#4177#0" expanded="false" />
+                <element signature="n#!!doc;n#receiveMsg#0;n#RoomUI#0" expanded="false" />
+                <element signature="e#4317#5263#0" expanded="false" />
+                <element signature="e#4345#4436#0" expanded="false" />
+                <element signature="e#4440#5259#0" expanded="false" />
+                <element signature="n#!!doc;n#onDice#0;n#RoomUI#0" expanded="false" />
+                <element signature="n#!!block;n#onDice#0;n#RoomUI#0" expanded="false" />
+                <element signature="n#!!doc;n#onCards#0;n#RoomUI#0" expanded="false" />
+                <element signature="e#5591#5638#0" expanded="false" />
+                <element signature="e#5728#5781#0" expanded="false" />
+                <element signature="n#!!doc;n#onLackCard#0;n#RoomUI#0" expanded="false" />
+                <element signature="n#!!block;n#onLackCard#0;n#RoomUI#0" expanded="false" />
+                <element signature="e#6131#6550#0" expanded="false" />
+                <element signature="e#6557#6610#0" expanded="false" />
+                <element signature="n#!!doc;n#onCurPlayerIndex#0;n#RoomUI#0" expanded="false" />
+                <element signature="n#!!block;n#onCurPlayerIndex#0;n#RoomUI#0" expanded="false" />
+                <element signature="n#!!doc;n#onHandleCards#0;n#RoomUI#0" expanded="false" />
+                <element signature="n#!!block;n#onHandleCards#0;n#RoomUI#0" expanded="false" />
+                <element signature="e#6798#6808#0" expanded="false" />
+                <element signature="e#6851#6861#0" expanded="false" />
+                <element signature="e#6900#6910#0" expanded="false" />
+                <element signature="e#6953#6966#0" expanded="false" />
+                <element signature="e#7022#7054#0" expanded="false" />
+                <element signature="e#7092#7148#0" expanded="false" />
+                <element signature="n#!!doc;n#onPlayedCards#0;n#RoomUI#0" expanded="false" />
+                <element signature="n#!!block;n#onPlayedCards#0;n#RoomUI#0" expanded="false" />
+                <element signature="e#7386#7455#0" expanded="false" />
+                <element signature="e#7495#7570#0" expanded="false" />
+                <element signature="e#7610#7681#0" expanded="false" />
+                <element signature="e#7721#7794#0" expanded="false" />
+                <element signature="n#!!doc;n#onHuCard#0;n#RoomUI#0" expanded="false" />
+                <element signature="n#!!block;n#onHuCard#0;n#RoomUI#0" expanded="false" />
+                <element signature="e#8072#8092#0" expanded="false" />
+                <element signature="e#8133#8156#0" expanded="false" />
+                <element signature="e#8197#8218#0" expanded="false" />
+                <element signature="e#8259#8281#0" expanded="false" />
+                <element signature="n#!!doc;n#onGangCard#0;n#RoomUI#0" expanded="false" />
+                <element signature="n#!!block;n#onGangCard#0;n#RoomUI#0" expanded="false" />
+                <element signature="e#8634#8711#0" expanded="false" />
+                <element signature="e#8751#8834#0" expanded="false" />
+                <element signature="e#8874#8953#0" expanded="false" />
+                <element signature="e#8993#9074#0" expanded="false" />
+                <element signature="e#9141#9182#0" expanded="false" />
+                <element signature="e#9223#9265#0" expanded="false" />
+                <element signature="e#9306#9347#0" expanded="false" />
+                <element signature="e#9388#9429#0" expanded="false" />
+                <element signature="e#9620#9772#0" expanded="false" />
+                <element signature="n#!!doc;n#onPengCard#0;n#RoomUI#0" expanded="false" />
+                <element signature="n#!!block;n#onPengCard#0;n#RoomUI#0" expanded="false" />
+                <element signature="e#10092#10169#0" expanded="false" />
+                <element signature="e#10209#10292#0" expanded="false" />
+                <element signature="e#10332#10411#0" expanded="false" />
+                <element signature="e#10451#10532#0" expanded="false" />
+                <element signature="e#10599#10640#0" expanded="false" />
+                <element signature="e#10681#10723#0" expanded="false" />
+                <element signature="e#10764#10805#0" expanded="false" />
+                <element signature="e#10846#10887#0" expanded="false" />
+                <element signature="e#11078#11230#0" expanded="false" />
+                <element signature="n#!!doc;n#onGameOver#0;n#RoomUI#0" expanded="false" />
+                <element signature="n#!!block;n#onGameOver#0;n#RoomUI#0" expanded="false" />
+                <element signature="n#!!doc;n#lack#0;n#RoomUI#0" expanded="false" />
+                <element signature="n#!!block;n#lack#0;n#RoomUI#0" expanded="false" />
+                <element signature="e#11459#11480#0" expanded="false" />
+                <element signature="e#11521#11543#0" expanded="false" />
+                <element signature="e#11584#11606#0" expanded="false" />
+                <element signature="e#11687#11745#0" expanded="false" />
+                <element signature="e#11710#11741#0" expanded="false" />
+                <element signature="n#!!doc;n#setArrow#0;n#RoomUI#0" expanded="false" />
+                <element signature="n#!!block;n#setArrow#0;n#RoomUI#0" expanded="false" />
+                <element signature="e#11868#11902#0" expanded="false" />
+                <element signature="e#11943#11976#0" expanded="false" />
+                <element signature="e#12017#12052#0" expanded="false" />
+                <element signature="e#12093#12128#0" expanded="false" />
+                <element signature="n#!!doc;n#setPlayCardAble#0;n#RoomUI#0" expanded="false" />
+                <element signature="n#!!block;n#setPlayCardAble#0;n#RoomUI#0" expanded="false" />
+                <element signature="e#12272#12594#0" expanded="false" />
+                <element signature="e#12401#12583#0" expanded="false" />
+                <element signature="e#12467#12509#0" expanded="false" />
+                <element signature="e#12540#12578#0" expanded="false" />
+                <element signature="n#!!doc;n#onCardChoosed#0;n#RoomUI#0" expanded="false" />
+                <element signature="n#!!block;n#onCardChoosed#0;n#RoomUI#0" expanded="false" />
+                <element signature="e#12746#12825#0" expanded="false" />
+                <element signature="n#!!doc;n#onCardOut#0;n#RoomUI#0" expanded="false" />
+                <element signature="n#!!block;n#onCardOut#0;n#RoomUI#0" expanded="false" />
+                <element signature="e#13069#13260#0" expanded="false" />
+                <element signature="e#13090#13217#0" expanded="false" />
+                <element signature="e#13225#13256#0" expanded="false" />
+                <element signature="n#!!doc;n#setSuggestPlayCard#0;n#RoomUI#0" expanded="false" />
+                <element signature="n#!!block;n#setSuggestPlayCard#0;n#RoomUI#0" expanded="false" />
+                <element signature="n#!!doc;n#showPlayedCard#0;n#RoomUI#0" expanded="false" />
+                <element signature="n#!!block;n#showPlayedCard#0;n#RoomUI#0" expanded="false" />
+                <element signature="n#!!doc;n#setHandleCard#0;n#RoomUI#0" expanded="false" />
+                <element signature="n#!!block;n#setHandleCard#0;n#RoomUI#0" expanded="false" />
+                <element signature="n#!!doc;n#actionPeng#0;n#RoomUI#0" expanded="false" />
+                <element signature="n#!!block;n#actionPeng#0;n#RoomUI#0" expanded="false" />
+                <element signature="e#14239#14336#0" expanded="false" />
+                <element signature="e#14262#14293#0" expanded="false" />
+                <element signature="e#14301#14332#0" expanded="false" />
+                <element signature="n#!!doc;n#actionGang#0;n#RoomUI#0" expanded="false" />
+                <element signature="n#!!block;n#actionGang#0;n#RoomUI#0" expanded="false" />
+                <element signature="e#14503#14600#0" expanded="false" />
+                <element signature="e#14526#14557#0" expanded="false" />
+                <element signature="e#14565#14596#0" expanded="false" />
+                <element signature="n#!!doc;n#actionHu#0;n#RoomUI#0" expanded="false" />
+                <element signature="n#!!block;n#actionHu#0;n#RoomUI#0" expanded="false" />
+                <element signature="e#14763#14895#0" expanded="false" />
+                <element signature="e#14786#14852#0" expanded="false" />
+                <element signature="e#14860#14891#0" expanded="false" />
+                <element signature="n#!!doc;n#actionGuo#0;n#RoomUI#0" expanded="false" />
+                <element signature="n#!!block;n#actionGuo#0;n#RoomUI#0" expanded="false" />
+                <element signature="e#15056#15061#0" expanded="false" />
+                <element signature="n#!!doc;n#addMyCard#0;n#RoomUI#0" expanded="false" />
+                <element signature="n#!!block;n#addMyCard#0;n#RoomUI#0" expanded="false" />
+                <element signature="n#!!doc;n#removeMyCard#0;n#RoomUI#0" expanded="false" />
+                <element signature="n#!!block;n#removeMyCard#0;n#RoomUI#0" expanded="false" />
+                <element signature="e#15290#15399#0" expanded="false" />
+                <element signature="e#15354#15395#0" expanded="false" />
+                <element signature="n#!!doc;n#sortCard#0;n#RoomUI#0" expanded="false" />
+                <element signature="n#!!block;n#sortCard#0;n#RoomUI#0" expanded="false" />
+                <element signature="e#15557#16333#0" expanded="false" />
+                <element signature="e#15637#15779#0" expanded="false" />
+                <element signature="e#15672#15774#0" expanded="false" />
+                <element signature="e#15692#15725#0" expanded="false" />
+                <element signature="e#15735#15768#0" expanded="false" />
+                <element signature="e#15804#15960#0" expanded="false" />
+                <element signature="e#15839#15955#0" expanded="false" />
+                <element signature="e#15873#15906#0" expanded="false" />
+                <element signature="e#15916#15949#0" expanded="false" />
+                <element signature="e#15985#16128#0" expanded="false" />
+                <element signature="e#16020#16123#0" expanded="false" />
+                <element signature="e#16041#16074#0" expanded="false" />
+                <element signature="e#16084#16117#0" expanded="false" />
+                <element signature="e#16170#16212#0" expanded="false" />
+                <element signature="e#16256#16298#0" expanded="false" />
+                <element signature="e#16340#16445#0" expanded="false" />
+                <element signature="e#16382#16424#0" expanded="false" />
+                <element signature="n#!!doc;n#setMyCards#0;n#RoomUI#0" expanded="false" />
+                <element signature="n#!!block;n#setMyCards#0;n#RoomUI#0" expanded="false" />
+                <element signature="e#16603#16954#0" expanded="false" />
+                <element signature="e#16757#16785#0" expanded="false" />
+                <element signature="e#16846#16874#0" expanded="false" />
+                <element signature="e#16922#16950#0" expanded="false" />
+                <element signature="n#!!block;n#setMyOpenCards#0;n#RoomUI#0" expanded="false" />
+                <element signature="e#17224#17345#0" expanded="false" />
+                <element signature="n#!!block;n#setMyPlayedCards#0;n#RoomUI#0" expanded="false" />
+                <element signature="e#17574#17776#0" expanded="false" />
+                <element signature="n#!!block;n#setRightCardsNum#0;n#RoomUI#0" expanded="false" />
+                <element signature="e#17922#18060#0" expanded="false" />
+                <element signature="n#!!block;n#setRightOpenCards#0;n#RoomUI#0" expanded="false" />
+                <element signature="e#18276#18407#0" expanded="false" />
+                <element signature="n#!!block;n#setRightPlayedCards#0;n#RoomUI#0" expanded="false" />
+                <element signature="e#18627#18760#0" expanded="false" />
+                <element signature="n#!!block;n#setTopOpenCards#0;n#RoomUI#0" expanded="false" />
+                <element signature="n#!!block;n#setLeftCardsNum#0;n#RoomUI#0" expanded="false" />
+                <element signature="n#!!block;n#setLeftOpenCards#0;n#RoomUI#0" expanded="false" />
+                <element signature="n#!!block;n#setLeftPlayedCards#0;n#RoomUI#0" expanded="false" />
+                <element signature="n#!!doc;n#setOtherCardNum#0;n#RoomUI#0" expanded="false" />
+                <element signature="n#!!block;n#setOtherCardNum#0;n#RoomUI#0" expanded="false" />
+                <element signature="n#!!doc;n#setPlayer#0;n#RoomUI#0" expanded="false" />
+                <element signature="n#!!doc;n#setLeftCardNum#0;n#RoomUI#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindManager">
+    <FindUsagesManager>
+      <setting name="OPEN_NEW_TAB" value="true" />
+    </FindUsagesManager>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="changedFiles">
+      <list>
+        <option value="$PROJECT_DIR$/src/client/view/RoomUI.ts" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="97" />
+    <option name="y" value="20" />
+    <option name="width" value="1764" />
+    <option name="height" value="1000" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
+    <OptionsSetting value="true" id="Add" />
+    <OptionsSetting value="true" id="Remove" />
+    <OptionsSetting value="true" id="Checkout" />
+    <OptionsSetting value="true" id="Update" />
+    <OptionsSetting value="true" id="Status" />
+    <OptionsSetting value="true" id="Edit" />
+    <ConfirmationsSetting value="0" id="Add" />
+    <ConfirmationsSetting value="0" id="Remove" />
+  </component>
+  <component name="ProjectReloadState">
+    <option name="STATE" value="0" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Majiang" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Majiang" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Majiang" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Majiang" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Majiang" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Majiang" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Majiang" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="client" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Majiang" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Majiang" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="client" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="view" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Majiang" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Majiang" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resource" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="options.lastSelected" value="Errors" />
+    <property name="options.splitter.main.proportions" value="0.3" />
+    <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+  </component>
+  <component name="RunManager">
+    <list size="0" />
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="0b171f53-ae7d-42ce-87d4-1d9f94ea305c" name="Default" comment="" />
+      <created>1497966975689</created>
+      <updated>1497966975689</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="97" y="20" width="1764" height="1000" extended-state="0" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+    </layout>
+  </component>
+  <component name="Vcs.Log.UiProperties">
+    <option name="RECENTLY_FILTERED_USER_GROUPS">
+      <collection />
+    </option>
+    <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+      <collection />
+    </option>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="myTodoPanelSettings">
+      <TodoPanelSettings />
+    </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/client/view/RoomUI.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4982079" vertical-offset="3961" max-vertical-offset="4906">
+          <caret line="744" column="33" selection-start-line="744" selection-start-column="33" selection-end-line="744" selection-end-column="33" />
+          <folding>
+            <element signature="e#1452#1464#0" expanded="false" />
+            <element signature="e#1500#1510#0" expanded="false" />
+            <element signature="e#1543#1552#0" expanded="false" />
+            <element signature="e#1585#1595#0" expanded="false" />
+            <element signature="e#2003#2018#0" expanded="false" />
+            <element signature="e#2044#2056#0" expanded="false" />
+            <element signature="e#2091#2102#0" expanded="false" />
+            <element signature="e#2141#2152#0" expanded="false" />
+            <element signature="e#2193#2206#0" expanded="false" />
+            <element signature="e#2243#2255#0" expanded="false" />
+            <element signature="e#2296#2308#0" expanded="false" />
+            <element signature="e#2351#2364#0" expanded="false" />
+            <element signature="e#2399#2411#0" expanded="false" />
+            <element signature="e#2450#2462#0" expanded="false" />
+            <element signature="e#2503#2516#0" expanded="false" />
+            <element signature="e#2552#2564#0" expanded="false" />
+            <element signature="e#2604#2616#0" expanded="false" />
+            <element signature="e#2659#2669#0" expanded="false" />
+            <element signature="e#2698#2708#0" expanded="false" />
+            <element signature="n#!!block;n#constructor#0;n#RoomUI#0" expanded="false" />
+            <element signature="n#!!block;n#init#0;n#RoomUI#0" expanded="false" />
+            <element signature="n#!!block;n#initView#0;n#RoomUI#0" expanded="false" />
+            <element signature="n#!!block;n#initListeners#0;n#RoomUI#0" expanded="false" />
+            <element signature="n#!!block;n#initPlayers#0;n#RoomUI#0" expanded="false" />
+            <element signature="e#3855#4181#0" expanded="false" />
+            <element signature="e#3924#4177#0" expanded="false" />
+            <element signature="n#!!doc;n#receiveMsg#0;n#RoomUI#0" expanded="false" />
+            <element signature="e#4317#5263#0" expanded="false" />
+            <element signature="e#4345#4436#0" expanded="false" />
+            <element signature="e#4440#5259#0" expanded="false" />
+            <element signature="n#!!doc;n#onDice#0;n#RoomUI#0" expanded="false" />
+            <element signature="n#!!block;n#onDice#0;n#RoomUI#0" expanded="false" />
+            <element signature="n#!!doc;n#onCards#0;n#RoomUI#0" expanded="false" />
+            <element signature="e#5591#5638#0" expanded="false" />
+            <element signature="e#5728#5781#0" expanded="false" />
+            <element signature="n#!!doc;n#onLackCard#0;n#RoomUI#0" expanded="false" />
+            <element signature="n#!!block;n#onLackCard#0;n#RoomUI#0" expanded="false" />
+            <element signature="e#6131#6550#0" expanded="false" />
+            <element signature="e#6557#6610#0" expanded="false" />
+            <element signature="n#!!doc;n#onCurPlayerIndex#0;n#RoomUI#0" expanded="false" />
+            <element signature="n#!!block;n#onCurPlayerIndex#0;n#RoomUI#0" expanded="false" />
+            <element signature="n#!!doc;n#onHandleCards#0;n#RoomUI#0" expanded="false" />
+            <element signature="n#!!block;n#onHandleCards#0;n#RoomUI#0" expanded="false" />
+            <element signature="e#6798#6808#0" expanded="false" />
+            <element signature="e#6851#6861#0" expanded="false" />
+            <element signature="e#6900#6910#0" expanded="false" />
+            <element signature="e#6953#6966#0" expanded="false" />
+            <element signature="e#7022#7054#0" expanded="false" />
+            <element signature="e#7092#7148#0" expanded="false" />
+            <element signature="n#!!doc;n#onPlayedCards#0;n#RoomUI#0" expanded="false" />
+            <element signature="n#!!block;n#onPlayedCards#0;n#RoomUI#0" expanded="false" />
+            <element signature="e#7386#7455#0" expanded="false" />
+            <element signature="e#7495#7570#0" expanded="false" />
+            <element signature="e#7610#7681#0" expanded="false" />
+            <element signature="e#7721#7794#0" expanded="false" />
+            <element signature="n#!!doc;n#onHuCard#0;n#RoomUI#0" expanded="false" />
+            <element signature="n#!!block;n#onHuCard#0;n#RoomUI#0" expanded="false" />
+            <element signature="e#8072#8092#0" expanded="false" />
+            <element signature="e#8133#8156#0" expanded="false" />
+            <element signature="e#8197#8218#0" expanded="false" />
+            <element signature="e#8259#8281#0" expanded="false" />
+            <element signature="n#!!doc;n#onGangCard#0;n#RoomUI#0" expanded="false" />
+            <element signature="n#!!block;n#onGangCard#0;n#RoomUI#0" expanded="false" />
+            <element signature="e#8634#8711#0" expanded="false" />
+            <element signature="e#8751#8834#0" expanded="false" />
+            <element signature="e#8874#8953#0" expanded="false" />
+            <element signature="e#8993#9074#0" expanded="false" />
+            <element signature="e#9141#9182#0" expanded="false" />
+            <element signature="e#9223#9265#0" expanded="false" />
+            <element signature="e#9306#9347#0" expanded="false" />
+            <element signature="e#9388#9429#0" expanded="false" />
+            <element signature="e#9620#9772#0" expanded="false" />
+            <element signature="n#!!doc;n#onPengCard#0;n#RoomUI#0" expanded="false" />
+            <element signature="n#!!block;n#onPengCard#0;n#RoomUI#0" expanded="false" />
+            <element signature="e#10092#10169#0" expanded="false" />
+            <element signature="e#10209#10292#0" expanded="false" />
+            <element signature="e#10332#10411#0" expanded="false" />
+            <element signature="e#10451#10532#0" expanded="false" />
+            <element signature="e#10599#10640#0" expanded="false" />
+            <element signature="e#10681#10723#0" expanded="false" />
+            <element signature="e#10764#10805#0" expanded="false" />
+            <element signature="e#10846#10887#0" expanded="false" />
+            <element signature="e#11078#11230#0" expanded="false" />
+            <element signature="n#!!doc;n#onGameOver#0;n#RoomUI#0" expanded="false" />
+            <element signature="n#!!block;n#onGameOver#0;n#RoomUI#0" expanded="false" />
+            <element signature="n#!!doc;n#lack#0;n#RoomUI#0" expanded="false" />
+            <element signature="n#!!block;n#lack#0;n#RoomUI#0" expanded="false" />
+            <element signature="e#11459#11480#0" expanded="false" />
+            <element signature="e#11521#11543#0" expanded="false" />
+            <element signature="e#11584#11606#0" expanded="false" />
+            <element signature="e#11687#11745#0" expanded="false" />
+            <element signature="e#11710#11741#0" expanded="false" />
+            <element signature="n#!!doc;n#setArrow#0;n#RoomUI#0" expanded="false" />
+            <element signature="n#!!block;n#setArrow#0;n#RoomUI#0" expanded="false" />
+            <element signature="e#11868#11902#0" expanded="false" />
+            <element signature="e#11943#11976#0" expanded="false" />
+            <element signature="e#12017#12052#0" expanded="false" />
+            <element signature="e#12093#12128#0" expanded="false" />
+            <element signature="n#!!doc;n#setPlayCardAble#0;n#RoomUI#0" expanded="false" />
+            <element signature="n#!!block;n#setPlayCardAble#0;n#RoomUI#0" expanded="false" />
+            <element signature="e#12272#12594#0" expanded="false" />
+            <element signature="e#12401#12583#0" expanded="false" />
+            <element signature="e#12467#12509#0" expanded="false" />
+            <element signature="e#12540#12578#0" expanded="false" />
+            <element signature="n#!!doc;n#onCardChoosed#0;n#RoomUI#0" expanded="false" />
+            <element signature="n#!!block;n#onCardChoosed#0;n#RoomUI#0" expanded="false" />
+            <element signature="e#12746#12825#0" expanded="false" />
+            <element signature="n#!!doc;n#onCardOut#0;n#RoomUI#0" expanded="false" />
+            <element signature="n#!!block;n#onCardOut#0;n#RoomUI#0" expanded="false" />
+            <element signature="e#13069#13260#0" expanded="false" />
+            <element signature="e#13090#13217#0" expanded="false" />
+            <element signature="e#13225#13256#0" expanded="false" />
+            <element signature="n#!!doc;n#setSuggestPlayCard#0;n#RoomUI#0" expanded="false" />
+            <element signature="n#!!block;n#setSuggestPlayCard#0;n#RoomUI#0" expanded="false" />
+            <element signature="n#!!doc;n#showPlayedCard#0;n#RoomUI#0" expanded="false" />
+            <element signature="n#!!block;n#showPlayedCard#0;n#RoomUI#0" expanded="false" />
+            <element signature="n#!!doc;n#setHandleCard#0;n#RoomUI#0" expanded="false" />
+            <element signature="n#!!block;n#setHandleCard#0;n#RoomUI#0" expanded="false" />
+            <element signature="n#!!doc;n#actionPeng#0;n#RoomUI#0" expanded="false" />
+            <element signature="n#!!block;n#actionPeng#0;n#RoomUI#0" expanded="false" />
+            <element signature="e#14239#14336#0" expanded="false" />
+            <element signature="e#14262#14293#0" expanded="false" />
+            <element signature="e#14301#14332#0" expanded="false" />
+            <element signature="n#!!doc;n#actionGang#0;n#RoomUI#0" expanded="false" />
+            <element signature="n#!!block;n#actionGang#0;n#RoomUI#0" expanded="false" />
+            <element signature="e#14503#14600#0" expanded="false" />
+            <element signature="e#14526#14557#0" expanded="false" />
+            <element signature="e#14565#14596#0" expanded="false" />
+            <element signature="n#!!doc;n#actionHu#0;n#RoomUI#0" expanded="false" />
+            <element signature="n#!!block;n#actionHu#0;n#RoomUI#0" expanded="false" />
+            <element signature="e#14763#14895#0" expanded="false" />
+            <element signature="e#14786#14852#0" expanded="false" />
+            <element signature="e#14860#14891#0" expanded="false" />
+            <element signature="n#!!doc;n#actionGuo#0;n#RoomUI#0" expanded="false" />
+            <element signature="n#!!block;n#actionGuo#0;n#RoomUI#0" expanded="false" />
+            <element signature="e#15056#15061#0" expanded="false" />
+            <element signature="n#!!doc;n#addMyCard#0;n#RoomUI#0" expanded="false" />
+            <element signature="n#!!block;n#addMyCard#0;n#RoomUI#0" expanded="false" />
+            <element signature="n#!!doc;n#removeMyCard#0;n#RoomUI#0" expanded="false" />
+            <element signature="n#!!block;n#removeMyCard#0;n#RoomUI#0" expanded="false" />
+            <element signature="e#15290#15399#0" expanded="false" />
+            <element signature="e#15354#15395#0" expanded="false" />
+            <element signature="n#!!doc;n#sortCard#0;n#RoomUI#0" expanded="false" />
+            <element signature="n#!!block;n#sortCard#0;n#RoomUI#0" expanded="false" />
+            <element signature="e#15557#16333#0" expanded="false" />
+            <element signature="e#15637#15779#0" expanded="false" />
+            <element signature="e#15672#15774#0" expanded="false" />
+            <element signature="e#15692#15725#0" expanded="false" />
+            <element signature="e#15735#15768#0" expanded="false" />
+            <element signature="e#15804#15960#0" expanded="false" />
+            <element signature="e#15839#15955#0" expanded="false" />
+            <element signature="e#15873#15906#0" expanded="false" />
+            <element signature="e#15916#15949#0" expanded="false" />
+            <element signature="e#15985#16128#0" expanded="false" />
+            <element signature="e#16020#16123#0" expanded="false" />
+            <element signature="e#16041#16074#0" expanded="false" />
+            <element signature="e#16084#16117#0" expanded="false" />
+            <element signature="e#16170#16212#0" expanded="false" />
+            <element signature="e#16256#16298#0" expanded="false" />
+            <element signature="e#16340#16445#0" expanded="false" />
+            <element signature="e#16382#16424#0" expanded="false" />
+            <element signature="n#!!doc;n#setMyCards#0;n#RoomUI#0" expanded="false" />
+            <element signature="n#!!block;n#setMyCards#0;n#RoomUI#0" expanded="false" />
+            <element signature="e#16603#16954#0" expanded="false" />
+            <element signature="e#16757#16785#0" expanded="false" />
+            <element signature="e#16846#16874#0" expanded="false" />
+            <element signature="e#16922#16950#0" expanded="false" />
+            <element signature="n#!!block;n#setMyOpenCards#0;n#RoomUI#0" expanded="false" />
+            <element signature="e#17224#17345#0" expanded="false" />
+            <element signature="n#!!block;n#setMyPlayedCards#0;n#RoomUI#0" expanded="false" />
+            <element signature="e#17574#17776#0" expanded="false" />
+            <element signature="n#!!block;n#setRightCardsNum#0;n#RoomUI#0" expanded="false" />
+            <element signature="e#17922#18060#0" expanded="false" />
+            <element signature="n#!!block;n#setRightOpenCards#0;n#RoomUI#0" expanded="false" />
+            <element signature="e#18276#18407#0" expanded="false" />
+            <element signature="n#!!block;n#setRightPlayedCards#0;n#RoomUI#0" expanded="false" />
+            <element signature="e#18627#18760#0" expanded="false" />
+            <element signature="n#!!block;n#setTopOpenCards#0;n#RoomUI#0" expanded="false" />
+            <element signature="n#!!block;n#setLeftCardsNum#0;n#RoomUI#0" expanded="false" />
+            <element signature="n#!!block;n#setLeftOpenCards#0;n#RoomUI#0" expanded="false" />
+            <element signature="n#!!block;n#setLeftPlayedCards#0;n#RoomUI#0" expanded="false" />
+            <element signature="n#!!doc;n#setOtherCardNum#0;n#RoomUI#0" expanded="false" />
+            <element signature="n#!!block;n#setOtherCardNum#0;n#RoomUI#0" expanded="false" />
+            <element signature="n#!!doc;n#setPlayer#0;n#RoomUI#0" expanded="false" />
+            <element signature="n#!!doc;n#setLeftCardNum#0;n#RoomUI#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
+

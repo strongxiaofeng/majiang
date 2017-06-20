@@ -38,8 +38,8 @@
         <e:Label id="myBalanceTxt" text="100000" x="59" y="1010" width="182"/>
         <e:Label id="leftNameTxt" text="张三" x="59" y="233" width="191"/>
         <e:Label id="leftBalanceTxt" text="100000" x="59" y="292" width="182"/>
-        <e:Label id="rightNameTxt" text="李四" x="1600" y="221" width="191"/>
-        <e:Label id="rightBalanceTxt" text="100000" x="1607" y="289" width="182"/>
+        <e:Label id="rightNameTxt" text="李四" x="1683" y="221" width="191"/>
+        <e:Label id="rightBalanceTxt" text="100000" x="1695" y="289" width="182"/>
         <e:Label id="topNameTxt" text="王五" x="280" y="42" width="191"/>
         <e:Label id="topBalanceTxt" text="100000" x="281" y="95" width="182"/>
 		<e:Image id="leftLackImg" source="" x="77" y="366" scaleX="1" scaleY="1" width="50" height="50"/>
@@ -49,7 +49,7 @@
 	</e:Group>
 	<e:Group id="cardMsgGroup" width="1" height="1" x="0" y="0">
 		<e:Image id="arrow" source="arrow_png" x="984" y="498" scaleX="1" scaleY="1" width="300" height="30" anchorOffsetY="15" visible="false"/>
-		<e:Label id="leftCardTxt" text="还剩牌:108" x="733" y="448" scaleX="1" scaleY="1" size="60" anchorOffsetX="0" width="463" anchorOffsetY="0" height="95" textAlign="center"/>
+		<e:Label id="leftCardTxt" text="还剩牌:108" x="733" y="511" scaleX="1" scaleY="1" size="60" anchorOffsetX="0" width="463" anchorOffsetY="0" height="95" textAlign="center"/>
 	</e:Group>
 	<e:Group id="lackGroup" width="1" height="1" x="0" y="0" visible="false">
 		<e:Button id="lackBtn_wan" label="" x="496" y="622" scaleX="1" scaleY="1">
@@ -112,15 +112,15 @@
 		</e:Button>
 	</e:Group>
 	<e:Group id="playCardGroup" width="1" height="1" x="0" y="0" visible="false">
-		<e:Label id="playedName" text="张三出牌了" x="707" y="338" scaleX="1" scaleY="1" size="50" textColor="0xad1616"/>
-		<e:Image id="playedCard" x="1012" y="266" scaleX="1" scaleY="1" source="tong1_png" width="100" height="160"/>
+		<e:Label id="playedName" text="张三出牌了" x="707" y="396" scaleX="1" scaleY="1" size="50" textColor="0xad1616"/>
+		<e:Image id="playedCard" x="1005" y="355" scaleX="1" scaleY="1" source="tong1_png" width="100" height="129"/>
 	</e:Group>
-	<e:Group id="effectGroup" width="1" height="1" x="0" y="0">
+	<e:Group id="effectGroup" width="1" height="1" x="0" y="0" touchChildren="false">
 		<e:Image id="effect_gang" source="effect_gang_png" x="99" y="350" width="300" height="300" scaleX="1" scaleY="1" anchorOffsetX="150" anchorOffsetY="150" visible="false"/>
 		<e:Image id="effect_peng" source="effect_peng_png" x="960" y="540" width="300" height="300" scaleX="1" scaleY="1" anchorOffsetX="150" anchorOffsetY="150" visible="false"/>
-		<e:Image id="effect_hu_my" x="810" y="764" source="effect_hu_png" width="300" height="300" scaleX="1" scaleY="1" visible="false"/>
-		<e:Image id="effect_hu_left" source="effect_hu_png" x="39" y="325" width="300" height="300" scaleX="1" scaleY="1" visible="false"/>
-		<e:Image id="effect_hu_right" source="effect_hu_png" x="1465" y="292" width="300" height="300" scaleX="1" scaleY="1" visible="false"/>
-		<e:Image id="effect_hu_top" source="effect_hu_png" x="763" y="-12" width="300" height="300" scaleX="1" scaleY="1" visible="false"/>
+		<e:Image id="effect_hu_my" x="810" y="770" source="effect_hu_png" width="300" height="300" scaleX="1" scaleY="1" visible="false"/>
+		<e:Image id="effect_hu_left" source="effect_hu_png" x="9" y="295" width="250" height="250" scaleX="1" scaleY="1" visible="false"/>
+		<e:Image id="effect_hu_right" source="effect_hu_png" x="1648" y="285" width="250" height="250" scaleX="1" scaleY="1" visible="false"/>
+		<e:Image id="effect_hu_top" source="effect_hu_png" x="891" y="-12" width="200" height="200" scaleX="1" scaleY="1" visible="false"/>
 	</e:Group>
 </e:Skin>

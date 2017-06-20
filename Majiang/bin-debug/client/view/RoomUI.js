@@ -573,13 +573,13 @@ var RoomUI = (function (_super) {
             card.y = 900;
             this.myCardGroup.addChild(card);
             if (this.myLack == "wan" && arr[i] < 36) {
-                card.alpha = 0.6;
+                card.alpha = 0.8;
             }
             else if (this.myLack == "tiao" && arr[i] >= 36 && arr[i] < 72) {
-                card.alpha = 0.6;
+                card.alpha = 0.8;
             }
             else if (this.myLack == "tong" && arr[i] >= 72) {
-                card.alpha = 0.6;
+                card.alpha = 0.8;
             }
         }
     };
@@ -602,28 +602,108 @@ var RoomUI = (function (_super) {
         this.myPlayedCardGroup.removeChildren();
         for (var i = 0; i < arr.length; i++) {
             var card = new Card(0, 2, arr[i]);
-            this.myPlayedCardGroup.addChild(card);
-            card.x = 500 + (i % 12) * w;
-            card.y = 750 + (Math.floor(i / 12)) * h;
+            this.myPlayedCardGroup.addChildAt(card, 0);
+            card.x = 500 + (i % 20) * w;
+            card.y = 700 + (Math.floor(i / 20)) * h;
             console.log("刷新一张出过的牌 x " + card.x + " y " + card.y);
         }
     };
+    RoomUI.prototype.setRightCardsNum = function (num) {
+        this.rightCardGroup.removeChildren();
+        for (var i = 0; i < num; i++) {
+            var card = new Card(1, 0);
+            this.rightCardGroup.addChild(card);
+            card.x = 1710 - num * 10 + i * 10;
+            card.y = 740 - num * 39 + i * 39;
+        }
+    };
     RoomUI.prototype.setRightOpenCards = function (arr) {
+        this.rightOpenCardGroup.removeChildren();
+        for (var i = 0; i < arr.length; i++) {
+            var card = new Card(1, 1, arr[i]);
+            this.rightOpenCardGroup.addChild(card);
+            card.x = 1507 + i * 8;
+            card.y = 260 + i * 30;
+        }
     };
     RoomUI.prototype.setRightPlayedCards = function (arr) {
+        var w = Card.sizeConfig[1][1][1];
+        this.rightPlayedCardGroup.removeChildren();
+        for (var i = 0; i < arr.length; i++) {
+            var card = new Card(1, 2, arr[i]);
+            this.rightPlayedCardGroup.addChild(card);
+            card.x = 1360 - Math.floor(i / 12 + 1) * w + (i % 12) * 6;
+            card.y = 260 + (i % 12) * 30;
+        }
+    };
+    RoomUI.prototype.setTopCardsNum = function (num) {
+        this.topCardGroup.removeChildren();
+        for (var i = 0; i < num; i++) {
+            var card = new Card(2, 0);
+            this.topCardGroup.addChild(card);
+            card.x = 1500 - num * 66 + i * 66;
+            card.y = 125;
+        }
     };
     RoomUI.prototype.setTopOpenCards = function (arr) {
+        var w = Card.sizeConfig[2][1][1];
+        this.topOpenCardGroup.removeChildren();
+        for (var i = 0; i < arr.length; i++) {
+            var card = new Card(2, 1, arr[i]);
+            this.topOpenCardGroup.addChildAt(card, 0);
+            card.x = 650 + i * w;
+            card.y = 200;
+        }
     };
     RoomUI.prototype.setTopPlayedCards = function (arr) {
+        var w = Card.sizeConfig[2][2][1];
+        var h = Card.sizeConfig[2][2][2];
+        this.topOpenCardGroup.removeChildren();
+        for (var i = 0; i < arr.length; i++) {
+            var card = new Card(2, 2, arr[i]);
+            this.topOpenCardGroup.addChildAt(card, 0);
+            card.x = 700 + (i % 14) * w;
+            card.y = 300 - Math.floor(i / 14 + 1) * h;
+        }
+    };
+    RoomUI.prototype.setLeftCardsNum = function (num) {
+        this.leftCardGroup.removeChildren();
+        for (var i = 0; i < num; i++) {
+            var card = new Card(3, 0);
+            this.leftCardGroup.addChild(card);
+            card.x = 276 + num * 10 - i * 10;
+            card.y = 740 - num * 39 + i * 39;
+        }
     };
     RoomUI.prototype.setLeftOpenCards = function (arr) {
+        this.leftOpenCardGroup.removeChildren();
+        for (var i = 0; i < arr.length; i++) {
+            var card = new Card(3, 1, arr[i]);
+            this.leftOpenCardGroup.addChild(card);
+            card.x = 500 - i * 8;
+            card.y = 273 + i * 30;
+        }
     };
     RoomUI.prototype.setLeftPlayedCards = function (arr) {
+        var w = Card.sizeConfig[1][2][1];
+        this.leftPlayedCardGroup.removeChildren();
+        for (var i = 0; i < arr.length; i++) {
+            var card = new Card(3, 2, arr[i]);
+            this.leftPlayedCardGroup.addChild(card);
+            card.x = 760 - Math.floor(i / 10 + 1) * w - (i % 10) * 6;
+            card.y = 350 + (i % 10) * 30;
+        }
     };
     /**刷新别人的牌数 */
     RoomUI.prototype.setOtherCardNum = function (index, n) {
-        if (index != 0 || index != 1 || index != 2 || index != 3) {
-            return;
+        if ((index + 1) % 4 == this.myseat % 4) {
+            this.setRightCardsNum(n);
+        }
+        else if ((index + 2) % 4 == this.myseat % 4) {
+            this.setTopCardsNum(n);
+        }
+        else if ((index + 3) % 4 == this.myseat % 4) {
+            this.setLeftCardsNum(n);
         }
     };
     /**刷新人名和余额 */

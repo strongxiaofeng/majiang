@@ -72,20 +72,20 @@ Card.sizeConfig = {
     0: [
         ["cardbg_my_png", 100, 160, 100, 127],
         ["cardbg_my_open_png", 57, 81, 57, 62],
-        ["cardbg_my_open_png", 57, 81, 57, 62]
+        ["cardbg_my_open_png", 40, 57, 40, 43]
     ],
     1: [
-        ["cardbg_left_png", 17, 43],
+        ["cardbg_left_png", 46, 100],
         ["cardbg_left_open_png", 48, 39, 48, 29],
         ["cardbg_left_open_png", 48, 39, 48, 29]
     ],
     2: [
         ["cardbg_top_png", 66, 98],
         ["cardbg_top_open_png", 57, 81, 57, 62],
-        ["cardbg_top_open_png", 57, 81, 57, 62]
+        ["cardbg_top_open_png", 32, 46, 32, 38]
     ],
     3: [
-        ["cardbg_left_png", 17, 43],
+        ["cardbg_left_png", 46, 100],
         ["cardbg_left_open_png", 48, 39, 48, 29],
         ["cardbg_left_open_png", 48, 39, 48, 29]
     ]
