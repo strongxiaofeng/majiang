@@ -12,29 +12,6 @@ var Card = (function (_super) {
     function Card(location, type, num) {
         if (num === void 0) { num = -1; }
         var _this = _super.call(this) || this;
-        /**各个位置的牌大小配置 */
-        _this.sizeConfig = {
-            0: [
-                ["cardbg_my_png", 100, 160, 100, 127],
-                ["cardbg_my_open_png", 57, 81, 57, 62],
-                ["cardbg_my_open_png", 57, 81, 57, 62]
-            ],
-            1: [
-                ["cardbg_left_png", 17, 43],
-                ["cardbg_left_open_png", 48, 39, 48, 29],
-                ["cardbg_left_open_png", 48, 39, 48, 29]
-            ],
-            2: [
-                ["cardbg_top_png", 66, 98],
-                ["cardbg_top_open_png", 57, 81, 57, 62],
-                ["cardbg_top_open_png", 57, 81, 57, 62]
-            ],
-            3: [
-                ["cardbg_left_png", 17, 43],
-                ["cardbg_left_open_png", 48, 39, 48, 29],
-                ["cardbg_left_open_png", 48, 39, 48, 29]
-            ]
-        };
         _this.location = location;
         _this.type = type;
         _this.num = num;
@@ -44,11 +21,11 @@ var Card = (function (_super) {
         return _this;
     }
     Card.prototype.init = function () {
-        var bgsrc = this.sizeConfig[this.location][this.type][0];
-        var bgwidth = this.sizeConfig[this.location][this.type][1];
-        var bgheight = this.sizeConfig[this.location][this.type][2];
-        var numwidth = this.sizeConfig[this.location][this.type][3];
-        var numheight = this.sizeConfig[this.location][this.type][4];
+        var bgsrc = Card.sizeConfig[this.location][this.type][0];
+        var bgwidth = Card.sizeConfig[this.location][this.type][1];
+        var bgheight = Card.sizeConfig[this.location][this.type][2];
+        var numwidth = Card.sizeConfig[this.location][this.type][3];
+        var numheight = Card.sizeConfig[this.location][this.type][4];
         var bg = new eui.Image(bgsrc);
         bg.width = bgwidth;
         bg.height = bgheight;
@@ -90,5 +67,28 @@ var Card = (function (_super) {
     };
     return Card;
 }(egret.DisplayObjectContainer));
+/**各个位置的牌大小配置 */
+Card.sizeConfig = {
+    0: [
+        ["cardbg_my_png", 100, 160, 100, 127],
+        ["cardbg_my_open_png", 57, 81, 57, 62],
+        ["cardbg_my_open_png", 57, 81, 57, 62]
+    ],
+    1: [
+        ["cardbg_left_png", 17, 43],
+        ["cardbg_left_open_png", 48, 39, 48, 29],
+        ["cardbg_left_open_png", 48, 39, 48, 29]
+    ],
+    2: [
+        ["cardbg_top_png", 66, 98],
+        ["cardbg_top_open_png", 57, 81, 57, 62],
+        ["cardbg_top_open_png", 57, 81, 57, 62]
+    ],
+    3: [
+        ["cardbg_left_png", 17, 43],
+        ["cardbg_left_open_png", 48, 39, 48, 29],
+        ["cardbg_left_open_png", 48, 39, 48, 29]
+    ]
+};
 __reflect(Card.prototype, "Card");
 //# sourceMappingURL=Card.js.map

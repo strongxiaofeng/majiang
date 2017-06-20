@@ -7,7 +7,7 @@ class Card extends egret.DisplayObjectContainer{
 	public num:number;
 
 	/**各个位置的牌大小配置 */
-	private sizeConfig = {
+	public static sizeConfig = {
 		0:[
 			["cardbg_my_png",100,160,100,127],
 			["cardbg_my_open_png",57,81,57,62],
@@ -44,11 +44,11 @@ class Card extends egret.DisplayObjectContainer{
 	}
 
 	private init(): void{
-		var bgsrc = this.sizeConfig[this.location][this.type][0];
-		var bgwidth = this.sizeConfig[this.location][this.type][1];
-		var bgheight = this.sizeConfig[this.location][this.type][2];
-		var numwidth = this.sizeConfig[this.location][this.type][3];
-		var numheight = this.sizeConfig[this.location][this.type][4];
+		var bgsrc = Card.sizeConfig[this.location][this.type][0];
+		var bgwidth = Card.sizeConfig[this.location][this.type][1];
+		var bgheight = Card.sizeConfig[this.location][this.type][2];
+		var numwidth = Card.sizeConfig[this.location][this.type][3];
+		var numheight = Card.sizeConfig[this.location][this.type][4];
 
 
 		var bg = new eui.Image(bgsrc);

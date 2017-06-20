@@ -20,8 +20,30 @@ var RoomUI = (function (_super) {
         _this.roomCommand_gangCard = 8;
         _this.roomCommand_pengCard = 9;
         _this.roomCommand_gameOver = 10;
-        /**我的牌数据 */
+        /**我手上的的牌 */
         _this.mycards = [];
+        /**我摆出的牌 */
+        _this.myOpencards = [];
+        /**我打出的牌 */
+        _this.myPlayedcards = [];
+        /**右边手上的的牌 */
+        _this.rightCardsNum = 0;
+        /**右边摆出的牌 */
+        _this.rightOpenCards = [];
+        /**右边打出的牌 */
+        _this.rightPlayedCards = [];
+        /**上边手上的的牌 */
+        _this.topCardsNum = 0;
+        /**上边摆出的牌 */
+        _this.topOpenCards = [];
+        /**上边打出的牌 */
+        _this.topPlayedCards = [];
+        /**左边手上的的牌 */
+        _this.leftCardsNum = 0;
+        /**左边摆出的牌 */
+        _this.leftOpenCards = [];
+        /**左边打出的牌 */
+        _this.leftPlayedCards = [];
         /**我的定缺 */
         _this.myLack = "";
         _this.skinName = "resource/mySkins/roomUISkin.exml";
@@ -177,7 +199,24 @@ var RoomUI = (function (_super) {
     RoomUI.prototype.onPlayedCards = function (data) {
         var index = data.content.playedCards.index;
         var cards = data.content.playedCards.cards;
-        this.showPlayedCard(index, cards.pop());
+        console.log('座位 ' + index + " 出的牌有 ", cards);
+        if (this.myseat == index) {
+            this.myPlayedcards = cards;
+            this.setMyPlayedCards(cards);
+        }
+        else if ((this.myseat + 1) % 4 == index % 4) {
+            this.rightPlayedCards = cards;
+            this.setRightPlayedCards(cards);
+        }
+        else if ((this.myseat + 2) % 4 == index % 4) {
+            this.topPlayedCards = cards;
+            this.setTopPlayedCards(cards);
+        }
+        else if ((this.myseat + 3) % 4 == index % 4) {
+            this.leftPlayedCards = cards;
+            this.setLeftPlayedCards(cards);
+        }
+        this.showPlayedCard(index, cards[cards.length - 1]);
     };
     /**收到某玩家胡了某张牌 */
     RoomUI.prototype.onHuCard = function (data) {
@@ -206,6 +245,22 @@ var RoomUI = (function (_super) {
         var card = data.content.gangOrPengInfo.card;
         var showedCards = data.content.gangOrPengInfo.showedCards;
         console.log("玩家" + index + "杠了牌" + "card" + " 他摆出来的牌有 ", showedCards);
+        if (this.myseat == index) {
+            this.myOpencards = showedCards;
+            this.setMyOpenCards(showedCards);
+        }
+        else if ((this.myseat + 1) % 4 == index % 4) {
+            this.rightOpenCards = showedCards;
+            this.setRightOpenCards(showedCards);
+        }
+        else if ((this.myseat + 2) % 4 == index % 4) {
+            this.topOpenCards = showedCards;
+            this.setTopOpenCards(showedCards);
+        }
+        else if ((this.myseat + 3) % 4 == index % 4) {
+            this.leftOpenCards = showedCards;
+            this.setLeftOpenCards(showedCards);
+        }
         var targetX = 0;
         var targetY = 0;
         if (index == this.myseat) {
@@ -244,6 +299,22 @@ var RoomUI = (function (_super) {
         var card = data.content.gangOrPengInfo.card;
         var showedCards = data.content.gangOrPengInfo.showedCards;
         console.log("玩家" + index + "碰了牌" + "card" + " 他摆出来的牌有 ", showedCards);
+        if (this.myseat == index) {
+            this.myOpencards = showedCards;
+            this.setMyOpenCards(showedCards);
+        }
+        else if ((this.myseat + 1) % 4 == index % 4) {
+            this.rightOpenCards = showedCards;
+            this.setRightOpenCards(showedCards);
+        }
+        else if ((this.myseat + 2) % 4 == index % 4) {
+            this.topOpenCards = showedCards;
+            this.setTopOpenCards(showedCards);
+        }
+        else if ((this.myseat + 3) % 4 == index % 4) {
+            this.leftOpenCards = showedCards;
+            this.setLeftOpenCards(showedCards);
+        }
         var targetX = 0;
         var targetY = 0;
         if (index == this.myseat) {
@@ -351,7 +422,6 @@ var RoomUI = (function (_super) {
         GameController.getInstance().sendPlayCard(this.roomId, this.myseat, cardValue, function (data) {
             if (data.code == 0) {
                 console.log("出牌成功");
-                _this.showPlayedCard(_this.myseat, cardValue);
                 _this.mycards.splice(_this.mycards.indexOf(cardValue), 1);
                 _this.setMyCards(_this.mycards);
             }
@@ -497,12 +567,9 @@ var RoomUI = (function (_super) {
     RoomUI.prototype.setMyCards = function (arr) {
         this.myCardGroup.removeChildren();
         arr = this.sortCard(arr);
-        console.log("排序之后的牌", arr);
-        //显示牌的中心点是960 每个牌宽100
-        var startx = 960 - arr.length * 50;
         for (var i = 0; i < arr.length; i++) {
             var card = new Card(0, 0, arr[i]);
-            card.x = startx + i * 100;
+            card.x = 260 + i * 100;
             card.y = 900;
             this.myCardGroup.addChild(card);
             if (this.myLack == "wan" && arr[i] < 36) {
@@ -515,6 +582,43 @@ var RoomUI = (function (_super) {
                 card.alpha = 0.6;
             }
         }
+    };
+    RoomUI.prototype.setMyOpenCards = function (arr) {
+        arr = this.sortCard(arr);
+        var w = Card.sizeConfig[0][1][1];
+        var h = Card.sizeConfig[0][1][2];
+        var len = arr.length;
+        this.myOpenCardGroup.removeChildren();
+        for (var i = 0; i < len; i++) {
+            var card = new Card(0, 1, arr[i]);
+            this.myOpenCardGroup.addChild(card);
+            card.x = 1600 - w * i;
+            card.y = 937;
+        }
+    };
+    RoomUI.prototype.setMyPlayedCards = function (arr) {
+        var w = Card.sizeConfig[0][2][1];
+        var h = Card.sizeConfig[0][2][2];
+        this.myPlayedCardGroup.removeChildren();
+        for (var i = 0; i < arr.length; i++) {
+            var card = new Card(0, 2, arr[i]);
+            this.myPlayedCardGroup.addChild(card);
+            card.x = 500 + (i % 12) * w;
+            card.y = 750 + (Math.floor(i / 12)) * h;
+            console.log("刷新一张出过的牌 x " + card.x + " y " + card.y);
+        }
+    };
+    RoomUI.prototype.setRightOpenCards = function (arr) {
+    };
+    RoomUI.prototype.setRightPlayedCards = function (arr) {
+    };
+    RoomUI.prototype.setTopOpenCards = function (arr) {
+    };
+    RoomUI.prototype.setTopPlayedCards = function (arr) {
+    };
+    RoomUI.prototype.setLeftOpenCards = function (arr) {
+    };
+    RoomUI.prototype.setLeftPlayedCards = function (arr) {
     };
     /**刷新别人的牌数 */
     RoomUI.prototype.setOtherCardNum = function (index, n) {

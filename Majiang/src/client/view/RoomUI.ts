@@ -10,9 +10,17 @@ class RoomUI extends eui.Component{
 	private leftCardTxt: eui.Label;
 
 	private myCardGroup: eui.Group;
+	private myOpenCardGroup: eui.Group;
+	private myPlayedCardGroup: eui.Group;
 	private leftCardGroup: eui.Group;
+	private leftOpenCardGroup: eui.Group;
+	private leftPlayedCardGroup: eui.Group;
 	private rightCardGroup: eui.Group;
+	private rightOpenCardGroup: eui.Group;
+	private rightPlayedCardGroup: eui.Group;
+	private topOpenCardGroup: eui.Group;
 	private topCardGroup: eui.Group;
+	private topPlayedCardGroup: eui.Group;
 
 	private lackGroup: eui.Group;
 	private actionGroup: eui.Group;
@@ -59,8 +67,31 @@ class RoomUI extends eui.Component{
 	private roomId:number;
 	/**我的座位号 0-3 */
 	private myseat:number;
-	/**我的牌数据 */
+	/**我手上的的牌 */
 	private mycards : number[]= [];
+	/**我摆出的牌 */
+	private myOpencards : number[]= [];
+	/**我打出的牌 */
+	private myPlayedcards : number[]= [];
+	/**右边手上的的牌 */
+	private rightCardsNum:number = 0;
+	/**右边摆出的牌 */
+	private rightOpenCards:number[] = [];
+	/**右边打出的牌 */
+	private rightPlayedCards:number[] = [];
+	/**上边手上的的牌 */
+	private topCardsNum:number = 0;
+	/**上边摆出的牌 */
+	private topOpenCards:number[] = [];
+	/**上边打出的牌 */
+	private topPlayedCards:number[] = [];
+	/**左边手上的的牌 */
+	private leftCardsNum:number = 0;
+	/**左边摆出的牌 */
+	private leftOpenCards:number[] = [];
+	/**左边打出的牌 */
+	private leftPlayedCards:number[] = [];
+
 	/**我的定缺 */
 	private myLack:string="";
 	/**玩家数据 */
@@ -237,7 +268,25 @@ class RoomUI extends eui.Component{
 	private onPlayedCards(data: RoomVO): void{
 		var index = data.content.playedCards.index;
 		var cards = data.content.playedCards.cards;
-		this.showPlayedCard(index, cards.pop());
+		console.log('座位 '+index+" 出的牌有 ",cards);
+		if(this.myseat == index){
+			this.myPlayedcards = cards;
+			this.setMyPlayedCards(cards);
+		}
+		else if((this.myseat+1)%4 == index%4){
+			this.rightPlayedCards = cards;
+			this.setRightPlayedCards(cards);
+		}
+		else if((this.myseat+2)%4 == index%4){
+			this.topPlayedCards = cards;
+			this.setTopPlayedCards(cards);
+		}
+		else if((this.myseat+3)%4 == index%4){
+			this.leftPlayedCards = cards;
+			this.setLeftPlayedCards(cards);
+		}
+
+		this.showPlayedCard(index, cards[cards.length-1]);
 	}
 	/**收到某玩家胡了某张牌 */
 	private onHuCard(data: RoomVO): void{
@@ -266,6 +315,23 @@ class RoomUI extends eui.Component{
 		var card = data.content.gangOrPengInfo.card;
 		var showedCards = data.content.gangOrPengInfo.showedCards;
 		console.log("玩家"+index+"杠了牌"+"card"+" 他摆出来的牌有 ", showedCards);
+
+		if(this.myseat == index){
+			this.myOpencards = showedCards;
+			this.setMyOpenCards(showedCards);
+		}
+		else if((this.myseat+1)%4 == index%4){
+			this.rightOpenCards = showedCards;
+			this.setRightOpenCards(showedCards);
+		}
+		else if((this.myseat+2)%4 == index%4){
+			this.topOpenCards = showedCards;
+			this.setTopOpenCards(showedCards);
+		}
+		else if((this.myseat+3)%4 == index%4){
+			this.leftOpenCards = showedCards;
+			this.setLeftOpenCards(showedCards);
+		}
 
 		var targetX = 0;
 		var targetY = 0;
@@ -307,6 +373,23 @@ class RoomUI extends eui.Component{
 		var card = data.content.gangOrPengInfo.card;
 		var showedCards = data.content.gangOrPengInfo.showedCards;
 		console.log("玩家"+index+"碰了牌"+"card"+" 他摆出来的牌有 ", showedCards);
+
+		if(this.myseat == index){
+			this.myOpencards = showedCards;
+			this.setMyOpenCards(showedCards);
+		}
+		else if((this.myseat+1)%4 == index%4){
+			this.rightOpenCards = showedCards;
+			this.setRightOpenCards(showedCards);
+		}
+		else if((this.myseat+2)%4 == index%4){
+			this.topOpenCards = showedCards;
+			this.setTopOpenCards(showedCards);
+		}
+		else if((this.myseat+3)%4 == index%4){
+			this.leftOpenCards = showedCards;
+			this.setLeftOpenCards(showedCards);
+		}
 
 		var targetX = 0;
 		var targetY = 0;
@@ -421,7 +504,6 @@ class RoomUI extends eui.Component{
 		GameController.getInstance().sendPlayCard(this.roomId, this.myseat, cardValue, (data)=>{
 			if(data.code==0){
 				console.log("出牌成功");
-				this.showPlayedCard(this.myseat, cardValue);
 				this.mycards.splice(this.mycards.indexOf(cardValue), 1);
 				this.setMyCards(this.mycards);
 			}
@@ -571,13 +653,10 @@ class RoomUI extends eui.Component{
 		this.myCardGroup.removeChildren();
 
 		arr = this.sortCard(arr);
-		console.log("排序之后的牌",arr);
 
-		//显示牌的中心点是960 每个牌宽100
-		var startx = 960-arr.length*50
 		for(var i=0;i<arr.length;i++) {
 			var card = new Card(0,0,arr[i])
-			card.x = startx+i*100;
+			card.x = 260+i*100;
 			card.y = 900;
 			this.myCardGroup.addChild(card);
 
@@ -591,8 +670,56 @@ class RoomUI extends eui.Component{
 				card.alpha = 0.6;
 			}
 		}
+	}
+	private setMyOpenCards(arr:Array<number>){
+		arr = this.sortCard(arr);
+		var w:number = <number>Card.sizeConfig[0][1][1];
+		var h:number = <number>Card.sizeConfig[0][1][2];
+		var len = arr.length;
+
+		this.myOpenCardGroup.removeChildren();
+		for(var i=0; i<len; i++){
+			var card = new Card(0,1,arr[i]);
+			this.myOpenCardGroup.addChild(card);
+			card.x = 1600- w*i;
+			card.y = 937;
+		}
+	}
+	private setMyPlayedCards(arr:Array<number>){
+		var w:number = <number>Card.sizeConfig[0][2][1];
+		var h:number = <number>Card.sizeConfig[0][2][2];
+
+		this.myPlayedCardGroup.removeChildren();
+		for(var i=0; i<arr.length; i++){
+			var card = new Card(0,2,arr[i]);
+			this.myPlayedCardGroup.addChild(card);
+			card.x = 500+(i%12)*w;
+			card.y = 750+ (Math.floor(i/12)) * h;
+
+			console.log("刷新一张出过的牌 x "+card.x+" y "+card.y);
+		}
+	}
+
+	private setRightOpenCards(arr:Array<number>){
 
 	}
+	private setRightPlayedCards(arr:Array<number>){
+
+	}
+	private setTopOpenCards(arr:Array<number>){
+		
+	}
+	private setTopPlayedCards(arr:Array<number>){
+		
+	}
+	private setLeftOpenCards(arr:Array<number>){
+		
+	}
+	private setLeftPlayedCards(arr:Array<number>){
+		
+	}
+
+
 	/**刷新别人的牌数 */
 	private setOtherCardNum(index, n){
 		if(index!=0 || index!=1 || index!=2 || index!=3) {

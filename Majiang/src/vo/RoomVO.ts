@@ -36,6 +36,7 @@ class RoomContent{
 	otherCardNum: OtherCardNum;
 	/**剩余的牌 */
 	leftCardsNum:number;
+
 	huAble: boolean;
 	pengAble: boolean;
 	gangAble: boolean;
