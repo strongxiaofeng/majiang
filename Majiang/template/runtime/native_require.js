@@ -12,7 +12,7 @@ var game_file_list = [
 	"libsrc/mouse/bin/mouse/mouse.js",
 	"polyfill/promise.js",
 	"bin-debug/vo/BaseVO.js",
-	"bin-debug/client/controller/GameController.js",
+	"bin-debug/LoadingUI.js",
 	"bin-debug/client/GlobalConfig.js",
 	"bin-debug/client/manager/UIManager.js",
 	"bin-debug/client/model/GameModel.js",
@@ -21,7 +21,7 @@ var game_file_list = [
 	"bin-debug/client/view/LoginUI.js",
 	"bin-debug/client/view/MainUI.js",
 	"bin-debug/client/view/RoomUI.js",
-	"bin-debug/vo/RoomVO.js",
+	"bin-debug/client/controller/GameController.js",
 	"bin-debug/Main.js",
 	"bin-debug/net/Commands.js",
 	"bin-debug/net/MsgListener.js",
@@ -30,7 +30,7 @@ var game_file_list = [
 	"bin-debug/ThemeAdapter.js",
 	"bin-debug/AssetAdapter.js",
 	"bin-debug/vo/RoomActionVO.js",
-	"bin-debug/LoadingUI.js",
+	"bin-debug/vo/RoomVO.js",
 	//----auto game_file_list end----
 ];
 

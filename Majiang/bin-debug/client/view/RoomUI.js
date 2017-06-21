@@ -573,13 +573,13 @@ var RoomUI = (function (_super) {
             card.y = 900;
             this.myCardGroup.addChild(card);
             if (this.myLack == "wan" && arr[i] < 36) {
-                card.alpha = 0.8;
+                card.alpha = 0.6;
             }
             else if (this.myLack == "tiao" && arr[i] >= 36 && arr[i] < 72) {
-                card.alpha = 0.8;
+                card.alpha = 0.6;
             }
             else if (this.myLack == "tong" && arr[i] >= 72) {
-                card.alpha = 0.8;
+                card.alpha = 0.6;
             }
         }
     };
@@ -658,10 +658,10 @@ var RoomUI = (function (_super) {
     RoomUI.prototype.setTopPlayedCards = function (arr) {
         var w = Card.sizeConfig[2][2][1];
         var h = Card.sizeConfig[2][2][2];
-        this.topOpenCardGroup.removeChildren();
+        this.topPlayedCardGroup.removeChildren();
         for (var i = 0; i < arr.length; i++) {
             var card = new Card(2, 2, arr[i]);
-            this.topOpenCardGroup.addChildAt(card, 0);
+            this.topPlayedCardGroup.addChildAt(card, 0);
             card.x = 700 + (i % 14) * w;
             card.y = 300 - Math.floor(i / 14 + 1) * h;
         }
