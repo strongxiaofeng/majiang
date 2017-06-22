@@ -158,15 +158,15 @@ var RoomUI = (function (_super) {
             this.myLackImg.source = "lack" + arr[i] + "_png";
             i++;
             if (i > 3)
-                i -= 3;
+                i -= 4;
             this.rightLackImg.source = "lack" + arr[i] + "_png";
             i++;
             if (i > 3)
-                i -= 3;
+                i -= 4;
             this.topLackImg.source = "lack" + arr[i] + "_png";
             i++;
             if (i > 3)
-                i -= 3;
+                i -= 4;
             this.leftLackImg.source = "lack" + arr[i] + "_png";
         }
         else {
@@ -432,6 +432,11 @@ var RoomUI = (function (_super) {
     };
     /**推荐一张牌到最右边 */
     RoomUI.prototype.setSuggestPlayCard = function () {
+        console.log("是否有缺牌没打完：" + this.iHaveLackCard() + " 是否有新模的牌 " + this.myLastestCard);
+        //如果已经缺牌，把最新摸的牌放到最右边 再把最右边的牌作为推荐牌
+        if (!this.iHaveLackCard() && this.myLastestCard > -1) {
+            this.sortCardBySuggest(this.mycards, this.myLastestCard);
+        }
         var card = this.myCardGroup.getChildAt(this.myCardGroup.numChildren - 1);
         card.x += 50;
     };
@@ -497,6 +502,10 @@ var RoomUI = (function (_super) {
     };
     /**刷新自己的牌数据 */
     RoomUI.prototype.addMyCard = function (arr) {
+        //摸了一张牌的情况
+        if (arr.length == 1) {
+            this.myLastestCard = arr[0];
+        }
         this.mycards = this.mycards.concat(arr);
         this.setMyCards(this.mycards);
     };
@@ -563,6 +572,65 @@ var RoomUI = (function (_super) {
             return arr;
         }
     };
+    /**将牌按定缺的花色排序，当前摸的牌排到最后面 */
+    RoomUI.prototype.sortCardBySuggest = function (arr, n) {
+        var lack = this.myLack;
+        if (lack.length > 0) {
+            //定缺的花色
+            var arr1 = [];
+            //不是缺的花色
+            var arr2 = [];
+            if (lack == "wan") {
+                for (var i = 0; i < arr.length; i++) {
+                    if (arr[i] == n)
+                        continue;
+                    if (arr[i] < 36) {
+                        arr2.push(arr[i]);
+                    }
+                    else {
+                        arr1.push(arr[i]);
+                    }
+                }
+            }
+            else if (lack == "tiao") {
+                for (var i = 0; i < arr.length; i++) {
+                    if (arr[i] == n)
+                        continue;
+                    if (arr[i] >= 36 && arr[i] < 72) {
+                        arr2.push(arr[i]);
+                    }
+                    else {
+                        arr1.push(arr[i]);
+                    }
+                }
+            }
+            else if (lack == "tong") {
+                for (var i = 0; i < arr.length; i++) {
+                    if (arr[i] == n)
+                        continue;
+                    if (arr[i] >= 72) {
+                        arr2.push(arr[i]);
+                    }
+                    else {
+                        arr1.push(arr[i]);
+                    }
+                }
+            }
+            arr1.sort(function (a, b) {
+                return parseInt(a) - parseInt(b);
+            });
+            arr2.sort(function (a, b) {
+                return parseInt(a) - parseInt(b);
+            });
+            return (arr1.concat(arr2)).concat([n]);
+        }
+        else {
+            arr.sort(function (a, b) {
+                return parseInt(a) - parseInt(b);
+            });
+            return arr;
+        }
+    };
     /**刷新自己的牌显示 */
     RoomUI.prototype.setMyCards = function (arr) {
         this.myCardGroup.removeChildren();
@@ -582,6 +650,23 @@ var RoomUI = (function (_super) {
                 card.alpha = 0.6;
             }
         }
+    };
+    /**是否还有缺牌没打完 */
+    RoomUI.prototype.iHaveLackCard = function () {
+        var b = false;
+        for (var i = 0; i < this.mycards.length; i++) {
+            var num = this.mycards[i];
+            if (this.myLack == "wan" && num < 36) {
+                b = true;
+            }
+            else if (this.myLack == "tiao" && num >= 36 && num < 72) {
+                b = true;
+            }
+            else if (this.myLack == "tong" && num >= 72) {
+                b = true;
+            }
+        }
+        return b;
     };
     RoomUI.prototype.setMyOpenCards = function (arr) {
         arr = this.sortCard(arr);
